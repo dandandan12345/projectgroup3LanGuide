@@ -50,18 +50,18 @@
         Privacy Policy &amp; Terms of Service.
     </string>
 
-    <string-array name="studentOrTeacherEnglish">
-        <item>Student</item>
-        <item>Teacher</item>
-    </string-array>
+    <string name="button">Button</string>
 
     <!-- Javad & Daniel -->
-    <string name="button">Button</string>
     <string name="reading">Reading</string>
     <string name="listening">Listening</string>
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
     <string name="advanced">Advanced</string>
     <string name="x">X</string>
+    <string-array name="studentOrTeacherEnglish">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
 
 </resources>

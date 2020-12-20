@@ -97,5 +97,10 @@ public class Lessons extends AppCompatActivity implements View.OnClickListener {
             intent.putExtra("Lesson", button.getText().toString());
             startActivity(intent);
         }
+        if(skill.equals(Skill.Vocabulary.toString())){
+            Intent intent= new Intent(this, VocabularyTest.class);
+            intent.putExtra("Lesson", button.getText().toString());
+            startActivity(intent);
+        }
     }
 }

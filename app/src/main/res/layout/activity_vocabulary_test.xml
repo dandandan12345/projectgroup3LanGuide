@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        tools:context=".VocabularyTest">
+
+        <TextView
+            android:id="@+id/lessonLabel"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lessonLabel">
+
+            <TextView
+                android:id="@+id/testInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_line"
+                android:textSize="16sp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp" />
+
+
+            <EditText
+                android:id="@+id/testText"
+                android:inputType="none"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_below="@+id/testInformation"
+                android:gravity="left"
+                android:text="TextView"
+                app:layout_constraintTop_toBottomOf="@+id/testInformation"
+                />
+
+            <EditText
+                android:id="@+id/invisibleEditText"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/transparent"
+                android:cursorVisible="false"
+                android:layout_width="132dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="234dp"
+                android:layout_marginBottom="37dp" />
+
+            <Button
+                android:id="@+id/submitButtonVocabulary"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/testText"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center|bottom"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background"
+                android:text="Submit"
+                android:layout_marginBottom="10dp"/>
+
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
