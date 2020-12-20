@@ -80,11 +80,11 @@ public class Lessons extends AppCompatActivity implements View.OnClickListener {
 
         Button button = (Button)v;
 
-        /*if(skill.equals(Skill.Writing.toString())){
+        if(skill.equals(Skill.Writing.toString())){
             Intent intent= new Intent(this, WritingLesson.class);
             intent.putExtra("Lesson",button.getText().toString() );
             startActivity(intent);
-        }*/
+        }
 
         if(skill.equals(Skill.Reading.toString())){
             Intent intent= new Intent(this, activity_lessons_reading.class);
