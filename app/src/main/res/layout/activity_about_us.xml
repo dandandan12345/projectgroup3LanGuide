@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    tools:context=".aboutUs">
+
+    <TextView
+        android:id="@+id/lesson_listeningTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="About us"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">>
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/globe" />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/appText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/appText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">>
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/we"
+            />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/groupText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/groupText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">>
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/education"
+            />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/educationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/educationText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/contactus"
+            />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/contactText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactUs"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

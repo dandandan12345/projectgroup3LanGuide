@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/lesson_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/lesson_1"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/readingDescription"
+                android:layout_width="371dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lesson_number" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/white"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/lessonText"
+                android:layout_width="370dp"
+                android:layout_height="231dp"
+                android:layout_marginTop="40dp"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/questionsText"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/darkBlue"
+                android:paddingTop="10dp"
+                android:text="@string/questions"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lessonText"
+                android:layout_marginBottom="20dp"/>
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="20dp"
+                >
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/lesson_submit"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:text="@string/submit"
+                android:layout_marginBottom="5dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

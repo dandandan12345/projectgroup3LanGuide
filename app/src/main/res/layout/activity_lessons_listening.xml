@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lesson_listeningTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/lesson_1"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/listeningDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="30dp"
+                android:textAlignment="viewStart"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+
+                >
+
+                <ImageView
+                    android:id="@+id/music_player_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/music_icon"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="TODO" />
+
+                <SeekBar
+                    android:id="@+id/positionBar"
+                    android:layout_width="370dp"
+                    android:layout_height="match_parent"
+                    android:progressTint="@color/red"
+                    android:thumbTint="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/elapsedTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       android:layout_marginRight="260dp"
+                        android:text="0:11"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/remainingTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:text="1:11"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/playBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/play"
+                    android:onClick="playAudioClick"
+                    android:layout_marginBottom="20dp"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/questionsText"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@color/darkBlue"
+                android:paddingTop="10dp"
+                android:text="@string/questions"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/listening_radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q1_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/listening_radioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q2_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/listening_radioGroup3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/rectangle"
+                android:layout_marginBottom="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/radioQuestionTitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/_1_what_is_the_title_of_the_topic"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_1"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_2"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/Q3_alternative3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/your_choice_3"
+                    android:textColor="@color/white"
+                    app:buttonTint="@color/white" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/lesson_submit"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_background"
+                android:text="@string/submit" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

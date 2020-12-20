@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project2">
+        <activity android:name=".aboutUs"></activity>
+        <activity android:name=".activity_lessons_listening" />
+        <activity android:name=".activity_lessons_reading"/>
         <activity android:name=".WritingLesson"></activity>
         <activity android:name=".Lessons" />
         <activity android:name=".Profile" />
