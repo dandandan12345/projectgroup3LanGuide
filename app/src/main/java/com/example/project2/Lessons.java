@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+// comment **************
 public class Lessons extends AppCompatActivity implements View.OnClickListener {
     Button btnLesson1, btnLesson2, btnLesson3, btnLesson4, btnLesson5, btnLesson6, btnLesson7;
     TextView title ;
