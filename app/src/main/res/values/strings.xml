@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">project 2</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- home page  -->
+    <string name="writing">Writing</string>
+    <string name="vocabulary">Vocabulary</string>
+
+    <!-- navigation menu  -->
+    <string name="nav_profile">Profile</string>
+    <string name="nav_result">My Result</string>
+    <string name="nav_setting">Settings</string>
+    <string name="nav_about">About us</string>
+    <string name="nav_help">Help</string>
+    <string name="nav_logout">Log out</string>
+
+    <!-- choose difficulty popup -->
+    <string name="choose_level_title">Choose your level</string>
+
+    <!-- buttons -->
+    <string name="btn_cancel">Cancel</string>
+
+    <!-- Profile -->
+    <string name="test">Test</string>
+    <string name="questions">Questions</string>
+    <string name="user_image">User image</string>
+
+    <!-- level popup -->
+    <string name="choose_your_level">Choose your Level</string>
+
+    <!-- log in and sign up -->
+
+
+    <string name="spinner_defaultEnglish">Choose a role</string>
+    <string name="loginSignUpTextEnglish">Dont have an account? Sign up</string>
+    <string name="loginEmailHintEnglish">E-mail</string>
+    <string name="loginPasswordHintEnglish">Password</string>
+    <string name="loginButtonText">Log in</string>
+    <string name="signUpfullNameHintEnglish">Full name</string>
+    <string name="signUpEmailHintEnglish">E-mail</string>
+    <string name="signUpCountryHintEnglish">Country</string>
+    <string name="signUpPasswordHintEnglish">Password</string>
+    <string name="signUpConfirmPasswordHintEnglish">Confirm password</string>
+    <string name="signUpButtonTextEnglish">SIGN UP</string>
+    <string name="signUpChooseRoleLable">Choose a role:</string>
+
+    <string name="TermsOfUseTextEnglish">
+        By continuing, you agree to accept our
+        Privacy Policy &amp; Terms of Service.
+    </string>
+
+    <string-array name="studentOrTeacherEnglish">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
+
+    <!-- Javad & Daniel -->
+    <string name="button">Button</string>
+    <string name="reading">Reading</string>
+    <string name="listening">Listening</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="advanced">Advanced</string>
+    <string name="x">X</string>
+
+</resources>
