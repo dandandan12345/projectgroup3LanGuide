@@ -1,4 +1,4 @@
-package com.example.project2.writing_lesson;
+package com.example.project2;
 
 import android.os.Bundle;
 
