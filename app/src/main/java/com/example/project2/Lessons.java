@@ -38,13 +38,13 @@ public class Lessons extends AppCompatActivity implements View.OnClickListener {
         // intent have level and skill
         Intent intent=getIntent();
         String level= intent.getStringExtra("level");
-         skill = intent.getStringExtra("skill");
+        skill = intent.getStringExtra("skill");
 
         // set the title of the layout to the right skill
         title.setText(skill);
-       // int u=i.getExtras().getInt("test");
+        // int u=i.getExtras().getInt("test");
 
-       // if(u==1)
+        // if(u==1)
         if(level.equals(LevelEnum.Beginner.toString()) )
         {
             //Nothing for now
@@ -60,7 +60,7 @@ public class Lessons extends AppCompatActivity implements View.OnClickListener {
             btnLesson6.setText("Lesson13");
             btnLesson7.setText("Lesson14");
         }
-       // else if(u==3)
+        // else if(u==3)
         else if(level.equals(LevelEnum.Advanced.toString()))
         {
             btnLesson1.setText("Lesson15");
@@ -73,16 +73,28 @@ public class Lessons extends AppCompatActivity implements View.OnClickListener {
         }
 /*        else if()
         {
-
         }*/
     }
     @Override
     public void onClick(View v) {
 
+        Button button = (Button)v;
+
         if(skill.equals(Skill.Writing.toString())){
             Intent intent= new Intent(this, WritingLesson.class);
-            Button button = (Button)v;
             intent.putExtra("Lesson",button.getText().toString() );
+            startActivity(intent);
+        }
+
+        if(skill.equals(Skill.Reading.toString())){
+            Intent intent= new Intent(this, activity_lessons_reading.class);
+            intent.putExtra("Lesson", button.getText().toString());
+            startActivity(intent);
+        }
+
+        if(skill.equals(Skill.Listening.toString())){
+            Intent intent= new Intent(this, activity_lessons_listening.class);
+            intent.putExtra("Lesson", button.getText().toString());
             startActivity(intent);
         }
     }
