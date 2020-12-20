@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WritingLesson"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical">
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:visibility="invisible"/>
+    <TextView
+        android:layout_marginStart="10dp"
+        android:id="@+id/writing_lesson_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/open_sans"
+        android:gravity="center"
+        android:text="Lesson 1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/writing_lesson_question"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingEnd="140dp"
+        android:layout_below="@id/writing_lesson_title"/>
+    <TextView
+        android:id="@+id/textView_writingText"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/writing_text_shape"
+        android:fontFamily="@font/open_sans"
+        android:padding="10dp"
+
+        android:textColorLink="@color/yellow"
+        android:layout_below="@id/writingSubmitButton"/>
+    <Button
+        android:id="@+id/writingSubmitButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:layout_marginBottom="30dp"
+        android:text="Submit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="submitTest"/>
+</RelativeLayout>
