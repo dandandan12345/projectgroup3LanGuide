@@ -55,7 +55,7 @@ public class chooseLevelDialog extends Dialog implements View.OnClickListener {
             level="";
         }else {
             String lev = ((TextView)v).getText().toString();
-            Intent intent = new Intent(context, Lessons.class);
+            Intent intent = new Intent(context, NewLessons.class);
             intent.putExtra("level",lev );
             intent.putExtra("skill", currentSkill.toString());
             context.startActivity(intent);

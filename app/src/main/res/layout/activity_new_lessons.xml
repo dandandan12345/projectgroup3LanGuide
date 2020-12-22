@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewLessons"
+    android:background="@drawable/gradient_background">
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/lessonsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reading"
+            android:textSize="35sp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/lessonsLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beginner"
+            android:textSize="18sp"
+            android:layout_below="@id/lessonsTitle"
+            android:gravity="center_horizontal"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lessonsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

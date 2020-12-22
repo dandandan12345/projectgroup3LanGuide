@@ -2,6 +2,7 @@ package com.example.project2.writing_lesson;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.text.Layout;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -20,6 +21,8 @@ import androidx.annotation.NonNull;
 import com.example.project2.R;
 
 import java.util.ArrayList;
+
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
 public class DisplayWritingText {
     int checkSpinnerCall;
@@ -44,6 +47,7 @@ public class DisplayWritingText {
         initItems();
         textView.setText(spannableStringBuilder);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
+
     }
     private void   initItems(){
         int x=1;
