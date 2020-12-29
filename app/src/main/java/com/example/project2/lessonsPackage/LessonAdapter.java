@@ -35,7 +35,9 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonAdap
         LessonItem currentLesson = mItemList.get(position);
         holder.textViewLesson.setText(currentLesson.getLesson());
         holder.textViewLessonNumber.setText(currentLesson.getLessonNumberString());
-        holder.ratingBar.setRating(currentLesson.getLessonRating());
+        // TODO change rating from percent to star
+        float rating =((Float.parseFloat(currentLesson.getLessonRating())*4)/100);
+        holder.ratingBar.setRating(rating);
     }
     @Override
     public int getItemCount() {

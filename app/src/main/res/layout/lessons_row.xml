@@ -29,9 +29,11 @@
     <RatingBar
         android:id="@+id/lessonRatingBar"
         style="@style/MyRatingBar"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:isIndicator="true"
+        android:stepSize="0.01"
         android:numStars="4"/>
 </RelativeLayout>

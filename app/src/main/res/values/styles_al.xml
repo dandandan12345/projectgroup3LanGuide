@@ -43,4 +43,21 @@
         <item name="android:progressDrawable">@drawable/rating_trophy</item>
     </style>
 
+
+    <string name="percent" translatable="false">%</string>
+    <!-- Error messages  -->
+    <string name="error_name_required">Fullname is required</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_country_required">Country is required</string>
+    <string name="error_invalid_email">Please enter valid email</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_short_password">Min password length should be 6 character</string>
+    <string name="error_passwords_not_matching">Password dose not match</string>
+
+
+    <!-- messages -->
+    <string name="message_signing_up">Signing up....</string>
+
+
+
 </resources>

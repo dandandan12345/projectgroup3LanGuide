@@ -7,13 +7,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
+
+import com.example.project2.utils.Skill;
 
 public class chooseLevelDialog extends Dialog implements View.OnClickListener {
 
