@@ -7,224 +7,145 @@
     android:background="@drawable/gradient_background"
     android:orientation="vertical">
 
-    <ScrollView
+    <TextView
+        android:id="@+id/lesson_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lesson_1"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/readingDescription"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/lessonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
+        android:textAlignment="viewStart"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/report_rectangle_shape">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp">
 
-
-            <TextView
-                android:id="@+id/lesson_number"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/left_layout"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/lesson_1"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/readingDescription"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lesson_number" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white"
-                android:textAlignment="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:id="@+id/lessonText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:id="@+id/questionsText"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/darkBlue"
-                android:paddingTop="10dp"
-                android:text="@string/questions"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lessonText" />
-
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp"
-                android:gravity="center">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/radioQuestionTitle1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/Q1_alternative1"
+                    android:id="@+id/questionTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
+                    android:text="Here are questions"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"/>
 
-                <RadioButton
-                    android:id="@+id/Q1_alternative2"
+                <RadioGroup
+                    android:id="@+id/radiogroup1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
+                    android:clickable="true"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/Q1_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
 
-            </RadioGroup>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:layout_marginBottom="10dp"
+                        android:buttonTint="@color/white"
+                        android:textColor="@color/white"
+                        android:id="@+id/alt1"
+                        android:checked="false"/>
 
-            <RadioGroup
-                android:id="@+id/radioGroup2"
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:textColor="@color/white"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/alt2"
+                        android:checked="false"
+                        android:buttonTint="@color/white"
+                        android:layout_marginLeft="10dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="C"
+                        android:buttonTint="@color/white"
+                        android:textColor="@color/white"
+                        android:id="@+id/alt3"
+                        android:checked="false"
+                        android:layout_marginLeft="10dp"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/right_layout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/radioQuestionTitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="18sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/radioGroup3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/radioQuestionTitle3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="18sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    app:buttonTint="@color/white" />
-
-            </RadioGroup>
-
-            <Button
-                android:id="@+id/lesson_submit"
-                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/button_background"
-                android:text="@string/submit" />
+                android:layout_marginRight="10dp"
+                android:gravity="right">
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="130dp"
+                    android:background="@drawable/button_background"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:id="@+id/next"
+                    android:layout_width="130dp"
+                    android:background="@drawable/button_background"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/answerdQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1/4"
+            android:gravity="center"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+
 </LinearLayout>

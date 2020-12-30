@@ -7,228 +7,150 @@
     android:background="@drawable/gradient_background"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/lesson_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lesson_1"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
 
-        <LinearLayout
+    <TextView
+        android:id="@+id/readingDescription"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/lessonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textAlignment="viewStart"
+        android:textSize="50sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
+        android:layout_marginBottom="20dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/report_rectangle_shape"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/questionTitle"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:text="Here are questions"
+            android:textSize="50dp"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:clickable="true"
+            android:layout_marginLeft="10dp">
 
 
-            <TextView
-                android:id="@+id/lesson_number"
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/lesson_1"
+                android:text="A"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
+                android:id="@+id/alt1"
+                android:checked="false"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                />
 
-            <TextView
-                android:id="@+id/readingDescription"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lesson_number" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white"
-                android:textAlignment="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:id="@+id/lessonText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
-                android:textAlignment="viewStart"
-                android:textSize="25sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:id="@+id/questionsText"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/darkBlue"
-                android:paddingTop="10dp"
-                android:text="@string/questions"
-                android:textAlignment="center"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lessonText" />
-
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/radioQuestionTitle1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="25sp" />
-
-                <RadioButton
-                    android:id="@+id/Q1_alternative1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q1_alternative2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q1_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/radioGroup2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/radioQuestionTitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="25sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q2_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/radioGroup3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rectangle"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/radioQuestionTitle3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/_1_what_is_the_title_of_the_topic"
-                    android:textSize="25sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_1"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_2"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-                <RadioButton
-                    android:id="@+id/Q3_alternative3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/your_choice_3"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:buttonTint="@color/white" />
-
-            </RadioGroup>
-
-            <Button
-                android:id="@+id/lesson_submit"
-                android:layout_width="match_parent"
+            <RadioButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/button_background"
-                android:text="@string/submit"
-                android:textSize="20sp" />
+                android:layout_marginLeft="15dp"
+                android:text="B"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/alt2"
+                android:checked="false"
+                android:buttonTint="@color/white"
+                android:textSize="30sp"
+                android:scaleX="1.5"
+                android:scaleY="1.5" />/>
 
-        </LinearLayout>
-    </ScrollView>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="C"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
+                android:id="@+id/alt3"
+                android:checked="false"
+                android:textSize="30sp"
+                android:scaleX="1.5"
+                android:scaleY="1.5" />
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/answerdQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1/4"
+            android:gravity="center"
+            android:textSize="40dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="85dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_background"
+            android:text="Back"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_background"
+            android:text="@string/next"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+
+
+
 </LinearLayout>
