@@ -8,6 +8,7 @@
     tools:context=".VocabularyTest"
     android:background="@drawable/gradient_background">
 
+
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,9 +23,22 @@
         android:orientation="vertical"
         android:weightSum="15">
         <RelativeLayout
+            android:id="@+id/headerLayout"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_weight="3">
+
+            <Button
+                android:id="@+id/submitButtonVocabulary"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center|top"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_background"
+                android:text="@string/submit" />
 
             <TextView
                 android:id="@+id/lessonLabel"
@@ -37,17 +51,17 @@
                 android:text="Lesson 1"
                 android:textSize="30sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/testInformation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lessonLabel"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="10dp" />
         </RelativeLayout>
-
+        <TextView
+            android:id="@+id/testInformation"
+            android:layout_below="@id/headerLayout"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="-132dp"
+            android:layout_marginEnd="12dp" />
         <TextView
             android:id="@+id/showCurrentEdit"
             android:background="@drawable/writing_text_shape"
@@ -73,15 +87,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <EditText
-                    android:padding="5dp"
                     android:id="@+id/testText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none|textNoSuggestions|textMultiLine"
-                    android:textSize="18sp"
                     android:textColor="@color/white"
                     android:focusable="false"
                     android:lineSpacingExtra="2dp"
+                    android:padding="10dp"
+                    android:textSize="35sp"
                     android:layout_gravity="center_vertical|end"
                     android:justificationMode="inter_word"
                     android:fontFamily="@font/open_sans"
@@ -89,7 +103,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -109,15 +122,6 @@
                 android:background="@android:color/transparent"
                 android:cursorVisible="false"
                 android:textColor="@android:color/transparent" />
-
-            <Button
-                android:id="@+id/submitButtonVocabulary"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/button_background"
-                android:text="@string/submit" />
 
         </RelativeLayout>
     </LinearLayout>

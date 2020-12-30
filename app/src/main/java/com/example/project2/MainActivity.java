@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.icu.number.IntegerWidth;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -103,6 +104,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent loginIntent = new Intent(MainActivity.this, Login.class);
                 loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(loginIntent);
+                finish();
+                break;
+            case R.id.help_nav:
+                //FirebaseAuth.getInstance().signOut();
+                //Intent loginIntent = new Intent(MainActivity.this, Login.class);
+                //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Intent helpIntent= new Intent(MainActivity.this,Help.class);
+                startActivity(helpIntent);
                 finish();
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);

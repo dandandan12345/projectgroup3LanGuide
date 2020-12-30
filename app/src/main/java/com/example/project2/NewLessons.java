@@ -96,6 +96,11 @@ public class NewLessons extends AppCompatActivity implements LessonAdapter.OnLes
             intent.putExtra("lessonObject", lessonItemForIntent);
             startActivity(intent);
         }
+        if(skill.equals(Skill.Vocabulary.toString())){
+            Intent intent= new Intent(this, VocabularyTest.class);
+            intent.putExtra("lessonObject", lessonItemForIntent);
+            startActivity(intent);
+        }
     }
 
     /*

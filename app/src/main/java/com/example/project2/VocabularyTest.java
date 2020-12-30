@@ -1,94 +1,84 @@
 package com.example.project2;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.text.Editable;
 import android.text.Html;
-import android.text.Layout;
-import android.text.Selection;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
-import android.text.method.MovementMethod;
-import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.UnderlineSpan;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project2.writing_lesson.DisplayWritingText;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.project2.Database.LessonItemForIntent;
+import com.example.project2.Database.LessonsGrade;
+import com.example.project2.Database.WriteGradesToDatabase;
+import com.example.project2.VocabularyPackage.Question;
+import com.example.project2.VocabularyPackage.VocabularyLesson;
+import com.google.firebase.auth.FirebaseAuth;
+import com.example.project2.Database.WriteGradesToDatabase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD;
 
 public class VocabularyTest extends AppCompatActivity {
 
-    int startIndex = 0;
-    int indexChange = 0;
-    int charsOfCurrentWord = 0;
-    int charsOfUserInput = 0;
-
-    int k = 0;
-
-    int clickableSpanIndex = 0;
-
-    SpannableString testString;
+    EditText invisibleField;
+    EditText testText;
+    Spinner spinner;
+    TextView testInfo;
 
     List<String> answers = new ArrayList<String>();
 
     Dialog resultDialog;
     Button submitButtonVocabulary;
+    TextView currentEdit;
+    LessonItemForIntent lessonItemForIntent;
+    WriteGradesToDatabase writeGradesToDatabase;
+    boolean isSubmitted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocabulary_test);
         Intent intent = getIntent();
-
+        lessonItemForIntent = intent.getParcelableExtra("lessonObject");
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        writeGradesToDatabase = new WriteGradesToDatabase(lessonItemForIntent, userId);
         TextView lessonLabel = findViewById(R.id.lessonLabel);
-        lessonLabel.setText(intent.getStringExtra("Lesson"));
+        lessonLabel.setText(lessonItemForIntent.getLesson());
+
+        answers.add("budget");
+        answers.add("reduction");
+        answers.add("economic");
+        answers.add("allocated");
+        answers.add("recurrent");
+        answers.add("resources");
+        answers.add("awarded");
+        answers.add("transparency");
+        answers.add("agreement");
+        answers.add("maintained");
+        answers.add("foreseen");
+        isSubmitted=false;
 
         String field = "Finance";
         String typeOfSkill = "Writing, vocabulary";
         String typeOfTask = "Spelling (of words often used when dealing with a budget)";
-        String task = "For each of the underlined words in the text decide whether it is spelled correctly. If it is written correctly, double tap on the line to make the underline green; otherwise, spell it correctly.";
+        String task = "For each of the yellow underlined words in the text decide whether it is spelled correctly. If it is written correctly, press the word and press correct otherwise, press edit to spell it correctly.";
         String test = "The European Union (EU) has been providing <u>budget</u> support to Cambodia in the education sector " +
                 "since 2003 on the basis of sound and comprehensive plans to improve performance in  the  sector  and  to" +
                 " gradually  implement  public  finance  management  (PFM)  reforms,  as well as continued improvements in both areas." +
@@ -97,7 +87,7 @@ public class VocabularyTest extends AppCompatActivity {
                 " to improve quality at all levels and to reduce regional and social disparities. Addressing these requires Government to increase its resources" +
                 " <u>alocated</u> to the sector. The further scaling up of budget support provided by the EU to the sector, as proposed, building on a recently" +
                 " agreed programme, will enhance the support to Government's efforts to reverse the fall in the share of Government <u>reccurent</u> funds" +
-                " provided  to  the  Ministry  of  Education,  Youth  and  Sports  (MoEYS)  by  supporting  an increase of Government <u>resorses</u> <u>avarded</u>" +
+                " provided  to  the  Ministry  of  Education,  Youth  and  Sports  (MoEYS)  by  supporting  an increase of Government <u>resources</u> <u>avarded</u>" +
                 " to specific interventions aimed at improving key service  delivery  indicators  related  to  access,  equity  and  quality  in  the  sector." +
                 "  It  will  also encourage  Government  to  continue  strengthening  its  PFM  systems  and  increase  budget <u>transperrency</u>." +
                 " The proposed amount is a top up to a recently signed programme covering the period 2014-2016.  An  Addendum to the ongoing Financing" +
@@ -106,33 +96,20 @@ public class VocabularyTest extends AppCompatActivity {
                 " <u>foresen</u> under the MIP 2014-2020.                                                             (European Comission, 2014)";
 
 
-        initializeTest(field,typeOfSkill,typeOfTask,task,test);
+        testText = findViewById(R.id.testText);
+        spinner = findViewById(R.id.SpinnerChoices);
+        invisibleField = findViewById(R.id.invisibleEditText);
+        testInfo=findViewById(R.id.testInformation);
+        currentEdit = findViewById(R.id.showCurrentEdit);
 
-        EditText testText = findViewById(R.id.testText);
-        EditText invisibleField = findViewById(R.id.invisibleEditText);
+
+        VocabularyLesson vocabularyLesson = new VocabularyLesson(test, testText,invisibleField, this, spinner,testInfo,currentEdit);
+
+        initializeInstructions(field,typeOfSkill,typeOfTask,task);
+
+        TextView currentEdit = findViewById(R.id.showCurrentEdit);
 
 
-        invisibleField.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (event.getAction()!=KeyEvent.ACTION_DOWN)  //so the onkeylistener doesnt go off twice
-                    return true;
-
-                EditText tt = findViewById(R.id.testText);
-                Editable text = tt.getText();
-
-                if(KeyEvent.KEYCODE_DEL == keyCode)
-                {
-                    if(charsOfCurrentWord-2 + charsOfUserInput <= 0)  //man kan inte ta radera mer bokstäver än vad som finns i ordet
-                        return true;
-                    text.replace(startIndex+indexChange-1,startIndex+indexChange," ");
-                    charsOfUserInput = charsOfUserInput - 1;
-                    indexChange--;
-                }
-                return true;
-            }
-        });
 
 
         invisibleField.addTextChangedListener(new TextWatcher() {
@@ -148,64 +125,87 @@ public class VocabularyTest extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                invisibleField.setSelection(invisibleField.getText().length());  // make sure that the cursur is always last in the edittext
-                EditText tt = findViewById(R.id.testText);
-                Editable text = tt.getText();
-                //String input = s.toString();
-                String sText = s.toString(); //.substring(invisibleLeangth);
-                Character letter =  sText.charAt(sText.length()-1);
-                String input = letter.toString();
-
-                charsOfUserInput = charsOfUserInput +1;
-                if(charsOfUserInput < 1)
+                if(vocabularyLesson.focusChanged == true)
                 {
-                    text.replace(startIndex+indexChange,startIndex+indexChange+1,input);;
-                    indexChange++;
+                    vocabularyLesson.focusChanged = false;
+                    // previousSLength = 0;
                 }
-                else {
-                    charsOfUserInput = 0;
-                    if(s.length() != 0)
+                else
+                {
+
+                    if(s.length() <= vocabularyLesson.charsOfCurrentWord)
                     {
-                        invisibleField.removeTextChangedListener(this);
-                        String invisibleText = invisibleField.getText().toString();
-                        invisibleField.setText(invisibleText.substring(0, invisibleText.length() - 1));
-                        invisibleField.addTextChangedListener(this);
+                        EditText tt = findViewById(R.id.testText);
+                        Editable text = tt.getText();
+                        int start = vocabularyLesson.startIndex; //-vocabularyLesson.charsOfCurrentWord;
+                        // int end = vocabularyLesson.startIndex-vocabularyLesson.charsOfCurrentWord+vocabularyLesson.indexChange;
+                        int spaces = vocabularyLesson.charsOfCurrentWord - s.length();
+                        String input = addspace(spaces,s.toString());
+                        text.replace(start,start+vocabularyLesson.charsOfCurrentWord,input);
+                    }
+                    else{                                                       //om man skriver fler bokstäver än tillåtet tas den sista bokstaven på ordet bort från invisibleField
+                        String temp = s.toString();
+                        temp = temp.substring(0, temp.length() - 1);
+                        s.clear();
+                        s.insert(0,temp);
                     }
                 }
-
-                answers.add("budget");
-                answers.add("reduction");
-                answers.add("economic");
-                answers.add("allocated");
-                answers.add("recurrent");
-                answers.add("resources");
-                answers.add("awarded");
-                answers.add("transparency");
-                answers.add("agreement");
-                answers.add("maintained");
-                answers.add("foreseen");
+            }
+        });
 
 
-                submitButtonVocabulary = findViewById(R.id.submitButtonVocabulary);
-                submitButtonVocabulary.setOnClickListener(v -> {
+        submitButtonVocabulary = findViewById(R.id.submitButtonVocabulary);
+        submitButtonVocabulary.setOnClickListener(v -> {
+            if(submitButtonVocabulary.getText().toString().equals(getResources().getString(R.string.try_aging)))
+            {
+                isSubmitted=false;
+                finish();
+                startActivity(getIntent());
+            }
+            else
+            {
+                int answerCount = 0;
+                for(Question question: vocabularyLesson.placeholders)
+                {
+                    if(question.answered == true){
+                        answerCount++;
+                    }
+                }
+                if(answerCount == answers.size()){
+                    int i = 0;
+                    int start = 0;
+                    int end = 0;
                     int rightAnswers = 0;
                     String finishedTest = testText.getText().toString();
+                    SpannableString colorString = new SpannableString(finishedTest);
                     for (String answer:answers){
+                        String hello = vocabularyLesson.placeholders.get(i).placeHolder;
+                        start = vocabularyLesson.placeholders.get(i).index;
+                        end = start + vocabularyLesson.placeholders.get(i).placeHolder.length();
                         if(finishedTest.contains(answer)){
                             rightAnswers++;
+                            colorString.setSpan(new ForegroundColorSpan(Color.GREEN),start,end,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
                         }
+                        else{
+                            colorString.setSpan(new ForegroundColorSpan(Color.RED),start,end,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                        }
+                        i++;
                     }
+                    testText.setText(colorString);
+                    isSubmitted=true;
                     showResultDialog(rightAnswers,answers.size());
-                });
+                }
+                else{
+                    Toast.makeText(this,"You have not answered all the questions",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         initializeResultDialog();
     }
 
-    void initializeTest(String field, String typeOfSkill,String typeOfTask,String task,String test) {
 
-        TextView testInfo = findViewById(R.id.testInformation);
+    void initializeInstructions(String field, String typeOfSkill,String typeOfTask,String task) {
         String fieldLable = "<b>Field: </b>";
         testInfo.setText(Html.fromHtml(fieldLable + field));
         testInfo.append("\n\n");
@@ -218,212 +218,10 @@ public class VocabularyTest extends AppCompatActivity {
         String taskLable = "<b>Task: </b>";
         testInfo.append(Html.fromHtml(taskLable + task));
         testInfo.append("\n");
-        //getTagValues(test);
-
-        handleTestText(test);
-
-
-
-
-
-
-
-        /*
-        final TextView testTextView = findViewById(R.id.testText);
-        testTextView.setText(testString);
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            testTextView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
-        }
-
-         */
-
-
-
-
-        // testTextView.setText(Html.fromHtml(test));
-
 
     }
 
-    void handleTestText(String test)
-    {
-        testString = new SpannableString(Html.fromHtml(test));
-        final String str = test;
-        List<String> testStrings = getTagValues(test);
-        int i = 0;
-        for(String name: testStrings)
-        {
-            name = name.replace("<u>","");
-            name = name.replace("</u>","");
-            String tagFreeString = testString.toString();
-            int index = tagFreeString.indexOf(name);           //find the index of where the questions are and make them clickable
-            int temp = name.length();
-            testString.setSpan(new ForegroundColorSpan(Color.parseColor("#F08080")), index-1, index+name.length()+1, 0);
-            testString.setSpan(new UnderlineSpan(),index-1,index+name.length()+1,0);
-            EditText invisibleText = findViewById(R.id.invisibleEditText);
 
-            ClickableSpan clickableSpanQuestions = new ClickableSpan() {
-                @Override
-                public void onClick(@NonNull View widget) {
-                    invisibleText.clearFocus();
-                    k++;
-                    Handler handler = new Handler();
-                    Runnable runnable = new Runnable() {
-                        @Override
-                        public void run() {
-                            if(k == 1){
-                                invisibleText.setEnabled(true);
-                                invisibleText.requestFocus();
-                                InputMethodManager softKeyBoard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                                softKeyBoard.showSoftInput(invisibleText, 0);
-                            }
-                            else if(k == 2){
-                                hideKeyboard(invisibleText);
-                            }
-                            k = 0;
-                        }
-                    };
-                    if(k == 1)
-                    {
-
-                        handler.postDelayed(runnable,800);
-
-                        startIndex = index+temp;
-                        charsOfCurrentWord = temp+2;
-                        charsOfUserInput = 0;
-                        indexChange = 0;
-
-                    }
-                    else if(k == 2)
-                    {
-                        startIndex = index+temp;
-                        charsOfCurrentWord = temp+2;
-                        charsOfUserInput = 0;
-                        indexChange = 0;
-                        changeSpanColor(testString);
-                        hideKeyboard(invisibleText);
-                    }
-                    else if(k == 3)
-                    {
-                        k = 0;
-                    }
-                }
-
-                @Override
-                public void updateDrawState(TextPaint tp){
-                    tp.setColor(Color.parseColor("#27D5F6"));
-                }
-            };
-            ClickableSpan restOfText = new ClickableSpan() {
-                @Override
-                public void onClick(@NonNull View widget) {
-                    hideKeyboard(invisibleText);
-                }
-                @Override
-                public void updateDrawState(TextPaint tp){
-                    tp.setColor(Color.parseColor("#FFFFFF"));
-                }
-
-            };
-            testString.setSpan(restOfText,clickableSpanIndex,index,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            clickableSpanIndex = index + name.length();
-            testString.setSpan(clickableSpanQuestions, index, index+name.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            i++;
-        }
-
-        EditText testTextView = findViewById(R.id.testText);
-
-        testTextView.setText(testString,TextView.BufferType.SPANNABLE);
-        testTextView.setMovementMethod(LinkMovementMethod.getInstance());
-
-    }
-
-    private static final Pattern TAG_REGEX = Pattern.compile("<u>(.+?)</u>", Pattern.DOTALL);
-
-    private List<String> getTagValues(final String str) {
-        final TextView testTextView = findViewById(R.id.testText);
-        SpannableString spanString = new SpannableString(str);
-        //Matcher matcher=Pattern.compile("@(\"<u>(.+?)</u>\"+)").matcher(spanString);
-        final List<String> tagValues = new ArrayList<String>();
-        final Matcher matcher = TAG_REGEX.matcher(str);
-        while (matcher.find()) {
-            tagValues.add(matcher.group());
-            /*
-            spanString.setSpan(new ForegroundColorSpan(Color.parseColor("#0000FF")), matcher.start()+4, matcher.end(), 0);
-            final String tag = matcher.group(0);
-            ClickableSpan clickableSpan = new ClickableSpan() {
-                @Override
-                public void onClick(View textView) {
-                    //testTextView.setEnabled(true);
-                    //testTextView.getEditableText();
-                    Log.e("click", "click " + tag);
-                    EditText invisibleText = findViewById(R.id.invisibleEditText);
-                    EditText testText = findViewById(R.id.testText);
-                    invisibleLeangth = invisibleText.length();
-                    previousTextLeangth = 0;
-                    invisibleText.setEnabled(true);
-                    invisibleText.requestFocus();
-                    Editable text = testText.getText();
-                    String textToBeInserted = "HI";
-                    //int index = matcher.start();
-                    startIndex = text.toString().indexOf(tag);
-                    endIndex = text.toString().lastIndexOf(tag);
-
-                    //text.toString().replace("/<a>/g","");
-                    //text.insert(text.toString().indexOf(tag),textToBeInserted);
-                    //StringBuffer buffer = new StringBuffer(str);
-                    //buffer.insert(matcher.start(),  invisibleText.getText().toString());
-                    //String test=tag.replace(TAG_REGEX.toString() ,"");
-
-                }
-                @Override
-                public void updateDrawState(TextPaint ds) {
-                    super.updateDrawState(ds);
-
-                }
-            };
-            spanString.setSpan(clickableSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            //tagValues.add(matcher.group(1));
-        }
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            testTextView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
-        }
-        testTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        //testTextView.append(Html.fromHtml(String.valueOf(spanString)));
-        testTextView.setText(spanString,TextView.BufferType.SPANNABLE);
-       // testTextView.setText(testTextView.getText().toString().replace("/<a>/g",""));
-
-
-             */
-        }
-        return tagValues;
-    }
-
-    public void hideKeyboard(View view){
-        //View view = this.getCurrentFocus();
-        if(view != null)
-        {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
-        }
-    }
-
-    void changeSpanColor(SpannableString testString)
-    {
-        EditText testTextView = findViewById(R.id.testText);
-        testString = new SpannableString(testTextView.getText());
-
-        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.GREEN);
-        testString.setSpan(colorSpan, startIndex-charsOfCurrentWord+1,startIndex,0);
-
-
-        testTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        testTextView.setText(testString);
-    }
     private void initializeResultDialog() {
         resultDialog =new Dialog(this, R.style.resultDialogStyle);
         resultDialog.setContentView(R.layout.result_dialog_layout);
@@ -445,6 +243,11 @@ public class VocabularyTest extends AppCompatActivity {
         int wrong = totalQuestionsNumber - correctAnswersNumber;
         correctTextView.setText(String.valueOf(correctAnswersNumber));
         wrongAnswers.setText(String.valueOf(wrong));
+
+        LessonsGrade newGrade = new LessonsGrade(lessonItemForIntent.getLessonNumber(), totalQuestionsNumber,correctAnswersNumber );
+        writeGradesToDatabase. readResult();
+        writeGradesToDatabase.WriteGrade(newGrade);
+
         // if wrong answers if greater than correct display sad emoji
         if(wrong > correctAnswersNumber){
             statusImage.setImageResource(R.drawable.sad_emoji);
@@ -464,11 +267,14 @@ public class VocabularyTest extends AppCompatActivity {
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isSubmitted=false;
+                finish();
+                startActivity(getIntent());
                 /*
                 resultDialog.dismiss();
                 isSubmitted=false;
-                submitButton.setText(getResources().getString(R.string.submit));
-                displayWritingText = new DisplayWritingText(text2, textView_writingText, WritingLesson.this, choices,spinner);
+                submitButtonVocabulary.setText(getResources().getString(R.string.submit));
+                vocabularyLesson = new DisplayWritingText(text2, textView_writingText, WritingLesson.this, choices,spinner);
 
                  */
             }
@@ -476,5 +282,44 @@ public class VocabularyTest extends AppCompatActivity {
 
 
         resultDialog.show();
+    }
+
+    String addspace(int i, String str)
+    {
+        StringBuilder str1 = new StringBuilder();
+        str1.append(str);
+        for(int j=0;j<i;j++)
+        {
+            str1.append(" ");
+        }
+        return str1.toString();
+
+    }
+    @Override
+    public void onBackPressed() {
+        if(!isSubmitted){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+            builder.setCancelable(false);
+            builder.setMessage(getResources().getString(R.string.exit_without_submitting_message));
+            builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //if user pressed "yes", then he is allowed to exit from application
+                    finish();
+                }
+            });
+            builder.setNegativeButton(getResources().getString(R.string.No),new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //if user select "No", just cancel this dialog and continue with app
+                    dialog.cancel();
+                }
+            });
+            AlertDialog alert=builder.create();
+            alert.show();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
