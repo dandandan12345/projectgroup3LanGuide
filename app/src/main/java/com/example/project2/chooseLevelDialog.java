@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.example.project2.utils.LevelEnum;
 import com.example.project2.utils.Skill;
 
 public class chooseLevelDialog extends Dialog implements View.OnClickListener {
@@ -40,6 +41,7 @@ public class chooseLevelDialog extends Dialog implements View.OnClickListener {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         cancelBtn = findViewById(R.id.popupCancelBtn);
         beginner = findViewById(R.id.chooseBeginnerLevel);
@@ -52,12 +54,23 @@ public class chooseLevelDialog extends Dialog implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
+        // check level and send it to lessons activity
+        // we can't send text from clicked textView because it we be translated
+        String level = null;
         if(v.getId() == R.id.popupCancelBtn){
-            level="";
-        }else {
-            String lev = ((TextView)v).getText().toString();
+            level = null;
+        } else if(v.getId() == R.id.chooseBeginnerLevel) {
+            level = LevelEnum.Beginner.toString();
+
+        }else if(v.getId() == R.id.chooseIntermediateLevel) {
+            level = LevelEnum.Intermediate.toString();
+
+        }else if(v.getId() == R.id.chooseAdvancedLevel){
+            level = LevelEnum.Advanced.toString();
+        }
+        if(level != null){
             Intent intent = new Intent(context, NewLessons.class);
-            intent.putExtra("level",lev );
+            intent.putExtra("level",level );
             intent.putExtra("skill", currentSkill.toString());
             context.startActivity(intent);
         }

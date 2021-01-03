@@ -33,7 +33,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonAdap
     @Override
     public void onBindViewHolder(@NonNull LessonAdapterViewHolder holder, int position) {
         LessonItem currentLesson = mItemList.get(position);
-        holder.textViewLesson.setText(currentLesson.getLesson());
+        holder.textViewLesson.setText(R.string.lessonForLessons);
         holder.textViewLessonNumber.setText(currentLesson.getLessonNumberString());
         // TODO change rating from percent to star
         float rating =((Float.parseFloat(currentLesson.getLessonRating())*4)/100);

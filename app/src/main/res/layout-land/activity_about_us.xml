@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     tools:context=".aboutUs">
 
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">>
+                android:layout_marginRight="20dp">
 
                 <ImageView
                     android:layout_width="83dp"
@@ -46,6 +46,7 @@
                     android:id="@+id/appText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="@string/appText"
                     android:textSize="20sp" />
 
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">>
+                android:layout_marginRight="20dp">
 
                 <ImageView
                     android:layout_width="83dp"
@@ -70,6 +71,7 @@
                 <TextView
                     android:layout_marginTop="30dp"
                     android:id="@+id/groupText"
+                    android:justificationMode="inter_word"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/groupText"
@@ -82,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">>
+                android:layout_marginRight="20dp">
 
                 <ImageView
                     android:layout_width="83dp"
@@ -97,6 +99,7 @@
                     android:id="@+id/educationText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="@string/educationText"
                     android:textSize="20sp" />
 
@@ -124,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/contactUs"
                     android:textSize="20sp"
+                    android:justificationMode="inter_word"
                     android:layout_marginBottom="20dp"/>
 
             </LinearLayout>

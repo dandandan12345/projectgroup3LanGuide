@@ -2,8 +2,11 @@ package com.example.project2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +26,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
+
 public class Login extends AppCompatActivity {
 
     Button loginBtn;
@@ -30,6 +36,12 @@ public class Login extends AppCompatActivity {
     boolean isNewUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        setRightTheme();
+        String language = sharedPreferences.getString(getString(R.string.language_key), getString(R.string.pref_language_value_english));
+
+        setLocal(language);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Intent intent = getIntent();
@@ -108,12 +120,12 @@ public class Login extends AppCompatActivity {
         String email = emailField.getText().toString().trim();
         String password = passwordField.getText().toString().trim();
         if(email.isEmpty()|| email.equals(null)){
-            emailField.setError("Email is required");
+            emailField.setError(getString(R.string.error_email_required));
             emailField.requestFocus();
             return;
         }
         if(password.isEmpty() || password.equals(null)){
-            passwordField.setError("Password is required");
+            passwordField.setError(getString(R.string.error_password_required));
             passwordField.requestFocus();
             return;
         }
@@ -130,5 +142,23 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setLocal(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration con = new Configuration();
+        con.locale = locale;
+        getBaseContext().getResources().updateConfiguration(con, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
+        }
     }
 }

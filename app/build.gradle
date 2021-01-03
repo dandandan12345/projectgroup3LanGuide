@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
     // display images from url
     implementation 'com.squareup.picasso:picasso:2.71828'
+    // the gradle dependency for the support preference
+    implementation 'androidx.preference:preference:1.1.1'
 
 
 }

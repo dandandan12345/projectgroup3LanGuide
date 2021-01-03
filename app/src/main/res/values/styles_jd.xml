@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lesson_1">Lesson 1</string>
-    <string name="dear_colleagues_the_erasmus_agreement_between_our_institutions_information_and_communication_technologies_expires_in_2020_we_would_like_to_extend_our_cooperation_for_the_academic_year_2020_2021_for_us_an_e_mail_confirmation_is_sufficient_therefore_could_you_please_confirm_that_you_agree_that_we_prolong_the_agreement_for_one_academic_year_kind_regards_from_the_university_of_rijeka_mathew_jones">Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020. We would like to extend our cooperation for the academic year 2020/2021. For us an e-mail confirmation is sufficient. Therefore, could you please confirm that you agree that we prolong the agreement for one academic year? Kind regards from the University of Rijeka, Mathew Jones</string>
 
-    <string name="_1_what_is_the_title_of_the_topic">1 - What is the title of the topic?</string>
-    <string name="your_choice_1">Your choice 1</string>
-    <string name="your_choice_2">Your choice 2</string>
-    <string name="your_choice_3">Your choice 3</string>
-    <string name="_0_11">0:11</string>
-    <string name="_1_11">1:11</string>
-    <string name="image">image</string>
-    <string name="about_us">About us</string>
-
-    <string name="readingText">Dear Colleagues,
-        The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.
-        We would like to extend our cooperation for the academic year 2020/2021.
-        For us an e-mail confirmation is sufficient.
-        Therefore, could you please confirm that you agree that we prolong the agreement for one academic year?
-        Kind regards from the University of Rijeka, Mathew Jones
-    </string>
-
-    <string name="next">Next</string>
-    <string name="listeningText">
-        You have 30 seconds to read the questions below.
-        Listen to the audio, choose one of the suggested options.The recording plays twice.
-    </string>
-
-    <string name="readingDes">
-        Read the following text carefully and answer the questions.
-    </string>
-
-    <string name="appText">The goal of this app is to make the process of learning language easy and fun. We hope that this app is useful for you.</string>
-
-    <string name="groupText">We are a group of students that have worked on this application for a project assignment.</string>
-
-    <string name="educationText">This application is for people who want to learn english. It does not matter if you just started to learn english or want learn more advanced english, we have tests that suits every type of student regardless of skill level.</string>
-
-    <string name="contactUs">If you have any questions about the app or want to contact us feel free to send an e-mail and we will answer as soon as possible. Languageapp@email.com</string>
 
 </resources>

@@ -3,7 +3,10 @@ package com.example.project2;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +43,8 @@ public class Profile extends AppCompatActivity {
     UserInfo user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
 
         // get the intent that contain a user object with user information
@@ -88,7 +93,6 @@ public class Profile extends AppCompatActivity {
                    writing_questions_number.setText(numQues);
                    writing_progress_bar.setProgress(percent);
                    writing_progress_bar_text.setText(percent+getResources().getString(R.string.percent));
-                   Log.d("RRR", "changes");
                 }
             }
             @Override
@@ -135,6 +139,15 @@ public class Profile extends AppCompatActivity {
                     });
                 }
             });
+        }
+    }
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
         }
     }
 }

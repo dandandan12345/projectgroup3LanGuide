@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/drawer_layout"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,10 +23,10 @@
             android:orientation="vertical"
             android:weightSum="26"
             android:gravity="center_horizontal">
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -46,7 +46,6 @@
                     android:drawableStart="@drawable/ic_reading"
                     android:fontFamily="@font/open_sans"
                     android:text="@string/reading"
-                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:drawablePadding="25dp"
                     android:textAlignment="viewStart"
@@ -83,7 +82,6 @@
                     android:text="@string/listening"
                     android:drawablePadding="25dp"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/white"
                     android:textSize="20sp" />
                 <Space
                     android:layout_width="0dp"
@@ -116,7 +114,6 @@
                     android:text="@string/writing"
                     android:drawablePadding="25dp"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:onClick="chooseLevel"/>
 
@@ -151,7 +148,6 @@
                     android:text="@string/vocabulary"
                     android:drawablePadding="25dp"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:onClick="chooseLevel"/>
                 <Space
@@ -172,9 +168,9 @@
         android:layout_height="match_parent"
         app:menu="@menu/navigation_menu"
         android:layout_gravity="start"
-        android:background="@drawable/gradient_background"
+        android:background="?attr/backgroundColor"
         app:headerLayout="@layout/navigation_header"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"/>
-    </androidx.drawerlayout.widget.DrawerLayout>
+        app:itemTextColor="?attr/menuItemTextColor"
+        app:itemIconTint="?attr/drawerIconColor"/>
+</androidx.drawerlayout.widget.DrawerLayout>
 

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Login"
-        android:background="@drawable/gradient_background">
+        android:background="?attr/backgroundColor">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -58,12 +58,10 @@
             android:layout_width="400dp"
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:backgroundTint="@color/prim_color_pearl_500"
+            android:background="@drawable/button_background"
             android:text="Log in"
             android:textSize="24sp"
             android:onClick="LogIn"
-            app:backgroundTint="@color/prim_color_pearl_500"
             app:layout_constraintBottom_toTopOf="@+id/signUpText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

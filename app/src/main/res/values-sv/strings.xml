@@ -1,6 +1,5 @@
 <resources>
-
-    <string name="languageTitle">Language</string>
+    <string name="languageTitle">Språk</string>
     <!-- language key -->
     <string name="language_key">language</string>
     <!--  language labels-->
@@ -12,45 +11,45 @@
     <string name="app_name">project 2</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <string name="chooseLanguage">Choose language</string>
+    <string name="chooseLanguage">Välj språk</string>
     <!--Theme  -->
-    <string name="theme_key" translatable="false">light_mode</string>
-    <string name="theme">Theme</string>
+    <string name="theme">Tema</string>
     <string name="lightModeOn">Light theme is on</string>
     <string name="lightModeOff">Light theme is off</string>
-
     <!-- home page  -->
-    <string name="writing">Writing</string>
-    <string name="vocabulary">Vocabulary</string>
+    <string name="writing">Skriva</string>
+    <string name="vocabulary">Ord</string>
+    <string name="reading">Läsa</string>
+    <string name="listening">Höra</string>
     <!-- navigation menu  -->
-    <string name="nav_profile">Profile</string>
-    <string name="nav_result">My Result</string>
-    <string name="nav_setting">Settings</string>
-    <string name="nav_about">About us</string>
-    <string name="nav_help">Help</string>
-    <string name="nav_logout">Log out</string>
+    <string name="nav_profile">Profil</string>
+    <string name="nav_result">Resultat</string>
+    <string name="nav_setting">inställningar</string>
+    <string name="nav_about">om oss</string>
+    <string name="nav_help">Hjälp</string>
+    <string name="nav_logout">logga ut</string>
     <!-- choose difficulty popup -->
     <string name="choose_level_title">Choose your level</string>
     <!-- buttons -->
     <string name="btn_cancel">Cancel</string>
     <!-- Profile -->
     <string name="test">Test</string>
-    <string name="questions">Questions</string>
+    <string name="questions">Fråga</string>
     <string name="user_image">User image</string>
     <!-- level popup -->
     <string name="choose_your_level">Choose your Level</string>
     <!-- log in and sign up -->
     <string name="spinner_defaultEnglish">Choose a role</string>
-    <string name="loginSignUpTextEnglish">Dont have an account? Sign up</string>
+    <string name="loginSignUpTextEnglish">Dont have an account? Skapa Konto</string>
     <string name="loginEmailHintEnglish">E-mail</string>
     <string name="loginPasswordHintEnglish">Password</string>
-    <string name="loginButtonText">Log in</string>
+    <string name="loginButtonText">Logga in</string>
     <string name="signUpfullNameHintEnglish">Full name</string>
     <string name="signUpEmailHintEnglish">E-mail</string>
     <string name="signUpCountryHintEnglish">Country</string>
     <string name="signUpPasswordHintEnglish">Password</string>
     <string name="signUpConfirmPasswordHintEnglish">Confirm password</string>
-    <string name="signUpButtonTextEnglish">SIGN UP</string>
+    <string name="signUpButtonTextEnglish">Skapa Konto</string>
     <string name="signUpChooseRoleLable">Choose a role:</string>
     <string name="Edit">Edit</string>
     <string name="yes">Yes</string>
@@ -78,20 +77,20 @@
         By continuing, you agree to accept our
         Privacy Policy &amp; Terms of Service.
     </string>
-    <string name="button">Button</string>
-    <string name="lesson">Lesson %1$d </string>
-    <string name="lessonForLessons">Lesson</string>
+    <string name="lesson">Lektion %1$d</string>
+    <string name="lessonForLessons">Lektion</string>
 
+
+    <string name="button">Button</string>
     <!-- Javad & Daniel -->
-    <string name="reading">Reading</string>
-    <string name="listening">Listening</string>
-    <string name="beginner">Beginner</string>
-    <string name="intermediate">Intermediate</string>
-    <string name="advanced">Advanced</string>
+
+    <string name="beginner">Nybörjare</string>
+    <string name="intermediate">Medelnivå</string>
+    <string name="advanced">Avancerad</string>
     <string name="x">X</string>
     <string-array name="studentOrTeacherEnglish">
         <item>Student</item>
-        <item>Teacher</item>
+        <item>Lärare</item>
     </string-array>
 
     <string name="lesson_1">Lesson 1</string>

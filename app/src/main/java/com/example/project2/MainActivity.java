@@ -6,12 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.icu.number.IntegerWidth;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,6 +38,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
@@ -49,8 +55,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hom_page);
+
 
         // get userId and references to users
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -97,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.settings_nav:
+                intent = new Intent(this, Settings.class);
+                startActivity(intent);
+                finish();
 
                 break;
             case R.id.log_out_nav:
@@ -113,6 +125,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent helpIntent= new Intent(MainActivity.this,Help.class);
                 startActivity(helpIntent);
                 finish();
+                break;
+            case R.id.about_us_nav:
+                Intent aboutUsIntent = new Intent(this, aboutUs.class);
+                startActivity(aboutUsIntent);
+                finish();
+                break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -238,6 +256,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else
         {
             imageInDrawer.setImageResource(R.drawable.ic_profile);
+        }
+    }
+    private void setLocal(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration con = new Configuration();
+        con.locale = locale;
+        getBaseContext().getResources().updateConfiguration(con, getBaseContext().getResources().getDisplayMetrics());
+    }
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
         }
     }
 }

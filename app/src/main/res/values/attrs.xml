@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="isTablet">false</bool>
+    <declare-styleable name="ds">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="buttonColor" format="color"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="drawerIconColor" format="color"/>
+        <attr name="textColor" format="color" />
+        <attr name="backgroundReverseColor" format="color"/>
+        <attr name="report_rectangle_background" format="color"/>
+        <attr name="menuItemTextColor" format="color"/>
+        <attr name="editTextTextColor" format="color"/>
+        <attr name="customTextColor" format="color"/>
+        <attr name="levelChoice" format="color"/>
+    </declare-styleable>
 </resources>

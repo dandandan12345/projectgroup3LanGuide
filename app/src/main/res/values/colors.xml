@@ -5,11 +5,23 @@
     <!--  primary color  variant  -->
     <color name="black_pearl">#081B2C</color>
 
+    <color name="red">#e60000</color>
+    <color name="yellow">#ffff00</color>
+    <color name="green">#33cc33</color>
 
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkBlue">#081a2b</color>
 
+    <!-- TODO Add COLORS -->
+    <!-- color DarkMode-->
+    <color name="darkPrimaryColor">#426F9B</color>
+    <color name="darkPrimaryColorVariant">#081B2C</color>
+
+
+
+    <!-- colors lightMode -->
+    <color name="lightPrimaryColor">#82a6c9</color>
+    <color name="lightPrimaryColorVariant">#dbe6f0</color>
 </resources>

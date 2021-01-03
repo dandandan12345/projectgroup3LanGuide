@@ -2,10 +2,12 @@ package com.example.project2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import com.example.project2.Database.LessonItemForIntent;
 import com.example.project2.lessonsPackage.LessonAdapter;
 import com.example.project2.lessonsPackage.LessonItem;
+import com.example.project2.utils.DatabaseKeys;
+import com.example.project2.utils.LevelEnum;
 import com.example.project2.utils.Skill;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -41,19 +45,19 @@ public class NewLessons extends AppCompatActivity implements LessonAdapter.OnLes
     DatabaseReference ratingsReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_lessons);
         Intent intent=getIntent();
         level= intent.getStringExtra("level");
         skill = intent.getStringExtra("skill");
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        ratingsReference = FirebaseDatabase.getInstance().getReference().child("grades").child(userId).child(skill).child(level).child("ratings");
+        ratingsReference = FirebaseDatabase.getInstance().getReference().child(DatabaseKeys.GRADES_KEY).child(userId).child(skill).child(level).child(DatabaseKeys.RATINGS_KEY);
         lessonsLevel = findViewById(R.id.lessonsLevel);
         lessonsSkill = findViewById(R.id.lessonsTitle);
         readRatingsFromDatabase();
-        lessonsSkill.setText(skill);
-        lessonsLevel.setText(level);
-
+        setTitle();
 
         isTablet= getResources().getBoolean(R.bool.isTablet);
         mRecyclerView = findViewById(R.id.lessonsRecyclerView);
@@ -132,7 +136,6 @@ public class NewLessons extends AppCompatActivity implements LessonAdapter.OnLes
                 for (DataSnapshot snap :snapshot.getChildren()){
                     if(snap.getKey()!=null && snap.getValue() !=null)
                     ratingsMap.put(Integer.parseInt(snap.getKey()), snap.getValue().toString());
-                    Log.d("GGG", "key: "+snap.getKey()+" value: "+snap.getValue());
                 }
                 displayLayout();
             }
@@ -166,5 +169,39 @@ public class NewLessons extends AppCompatActivity implements LessonAdapter.OnLes
         mAdapter = new LessonAdapter(lessonList, this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+    }
+    private void setTitle(){
+        String title= "";
+        if(skill.equals(Skill.Writing.toString())){
+            title = getResources().getString(R.string.writing);
+        } else if(skill.equals(Skill.Listening.toString())){
+            title = getResources().getString(R.string.listening);
+        }  else if(skill.equals(Skill.Reading.toString())){
+            title = getResources().getString(R.string.reading);
+        } else if(skill.equals(Skill.Vocabulary.toString())){
+            title = getResources().getString(R.string.vocabulary);
+        }
+        lessonsSkill.setText(title);
+
+        String levelTitle ="";
+        if(level.equals(LevelEnum.Beginner.toString())){
+            levelTitle = getResources().getString(R.string.beginner);
+        }else if(level.equals(LevelEnum.Intermediate.toString())){
+            levelTitle = getResources().getString(R.string.intermediate);
+
+        }else if(level.equals(LevelEnum.Advanced.toString())){
+            levelTitle = getResources().getString(R.string.advanced);
+        }
+
+        lessonsLevel.setText(levelTitle);
+    }
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
+        }
     }
 }

@@ -11,8 +11,9 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Project2">
-        <activity android:name=".Help"></activity>
+        android:theme="@style/darkMode">
+        <activity android:name=".Settings"/>
+        <activity android:name=".Help" />
         <activity android:name=".VocabularyTest" />
         <activity android:name=".aboutUs" />
         <activity android:name=".activity_lessons_listening" />

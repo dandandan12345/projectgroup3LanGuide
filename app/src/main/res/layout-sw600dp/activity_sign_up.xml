@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:background="@drawable/rounded_edit_text"
             android:drawableLeft="@drawable/ic_action_person"
             android:ems="10"
+            android:drawablePadding="10dp"
             android:hint="Full name"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/signUpEmail"
@@ -36,6 +37,7 @@
             android:background="@drawable/rounded_edit_text"
             android:drawableLeft="@drawable/ic_action_email"
             android:ems="10"
+            android:drawablePadding="10dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/signUpCountry"
@@ -53,6 +55,7 @@
             android:background="@drawable/rounded_edit_text"
             android:drawableLeft="@drawable/ic_action_flag"
             android:ems="10"
+            android:drawablePadding="10dp"
             android:hint="Country"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/signUpPassword"
@@ -70,6 +73,7 @@
             android:drawableLeft="@drawable/ic_action_lock"
             android:ems="10"
             android:hint="Password"
+            android:drawablePadding="10dp"
             android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/signUpConfirmPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +88,7 @@
             android:background="@drawable/rounded_edit_text"
             android:drawableLeft="@drawable/ic_action_lock"
             android:ems="10"
+            android:drawablePadding="10dp"
             android:hint="Confirm password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +117,6 @@
             </RelativeLayout>
 
             <TextView
-                android:textColor="@color/white"
                 android:id="@+id/signUpChooseARoleLable"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
@@ -132,7 +136,6 @@
             android:scaleX="2"
             android:scaleY="2"
             android:text="SIGN UP"
-            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +158,6 @@
             android:layout_width="257dp"
             android:layout_height="43dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/white"
             android:text="@string/TermsOfUseTextEnglish"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

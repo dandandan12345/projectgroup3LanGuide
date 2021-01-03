@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VocabularyTest"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
 
 
     <Spinner
@@ -18,8 +18,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VocabularyTest"
-        android:background="@drawable/gradient_background"
+        tools:context=".activities.VocabularyTest"
+        android:background="?attr/backgroundColor"
         android:orientation="vertical"
         android:weightSum="15">
 
@@ -50,7 +50,6 @@
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
                 android:text="Lesson 1"
-                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
             <TextView
@@ -94,11 +93,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none|textNoSuggestions|textMultiLine"
-                    android:textColor="@color/white"
                     android:focusable="false"
                     android:lineSpacingExtra="2dp"
                     android:padding="1dp"
                     android:textSize="20sp"
+                    android:textColor="?attr/editTextTextColor"
                     android:layout_gravity="center_vertical|end"
                     android:justificationMode="inter_word"
                     android:fontFamily="@font/open_sans"

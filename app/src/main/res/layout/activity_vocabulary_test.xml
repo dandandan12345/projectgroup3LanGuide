@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VocabularyTest"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
 
     <Spinner
         android:layout_width="wrap_content"
@@ -17,8 +17,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VocabularyTest"
-        android:background="@drawable/gradient_background"
+        tools:context=".activities.VocabularyTest"
+        android:background="?attr/backgroundColor"
         android:orientation="vertical"
         android:weightSum="15">
         <RelativeLayout
@@ -30,7 +30,6 @@
                 android:id="@+id/lessonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
@@ -79,12 +78,12 @@
                     android:layout_height="match_parent"
                     android:inputType="none|textNoSuggestions|textMultiLine"
                     android:textSize="18sp"
-                    android:textColor="@color/white"
                     android:focusable="false"
                     android:lineSpacingExtra="2dp"
                     android:layout_gravity="center_vertical|end"
                     android:justificationMode="inter_word"
                     android:fontFamily="@font/open_sans"
+                    android:textColor="?attr/editTextTextColor"
                     android:textColorLink="@color/yellow"/>
             </LinearLayout>
 

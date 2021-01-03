@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical">
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="30dp"
-        android:background="@drawable/report_rectangle_shape"
+        android:background="?attr/report_rectangle_background"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
@@ -73,8 +73,8 @@
                 android:text="A"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
-                android:buttonTint="@color/white"
-                android:textColor="@color/white"
+                android:buttonTint="?attr/customTextColor"
+                android:textColor="?attr/customTextColor"
                 android:id="@+id/alt1"
                 android:checked="false"
                 android:textSize="30sp"
@@ -87,11 +87,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="B"
-                android:textColor="@color/white"
+                android:buttonTint="?attr/customTextColor"
+                android:textColor="?attr/customTextColor"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/alt2"
                 android:checked="false"
-                android:buttonTint="@color/white"
                 android:textSize="30sp"
                 android:scaleX="1.5"
                 android:scaleY="1.5" />/>
@@ -102,8 +102,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:text="C"
-                android:buttonTint="@color/white"
-                android:textColor="@color/white"
+                android:buttonTint="?attr/customTextColor"
+                android:textColor="?attr/customTextColor"
                 android:id="@+id/alt3"
                 android:checked="false"
                 android:textSize="30sp"

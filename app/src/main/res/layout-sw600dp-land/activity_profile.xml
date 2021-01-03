@@ -7,14 +7,14 @@
     android:weightSum="7"
     tools:context=".Profile"
     android:orientation="horizontal"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
     <RelativeLayout
         android:id="@+id/topPart"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/gradient_background_reverse_color">
+        android:background="?attr/backgroundReverseColor">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="user Name"
-                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/imageHolder"/>
@@ -53,8 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/large_icon_edit"
+            android:drawableTint="?attr/drawerIconColor"
             android:background="@null"
-            android:textColor="@color/white"
             android:textSize="25sp"
             android:text="@string/Edit"
             android:textAllCaps="false"
@@ -81,7 +80,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:text="@string/reading"
                     android:layout_marginBottom="15dp"/>
                 <LinearLayout
@@ -94,7 +92,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"/>
                     <RelativeLayout
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
@@ -105,7 +103,6 @@
                             android:layout_height="wrap_content"
                             android:text="10"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -113,7 +110,6 @@
                             android:text="@string/test"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/reading_test_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -121,7 +117,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <RelativeLayout
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
@@ -132,7 +128,6 @@
                             android:layout_height="wrap_content"
                             android:text="150"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -140,7 +135,6 @@
                             android:text="@string/questions"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/reading_questions_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -152,7 +146,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape">
+                        android:background="?attr/report_rectangle_background">
                         <ProgressBar
                             android:id="@+id/reading_progress_bar"
                             android:layout_width="match_parent"
@@ -182,7 +176,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:text="@string/listening"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="40dp"/>
@@ -196,7 +189,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"/>
                     <RelativeLayout
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
@@ -207,7 +200,6 @@
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -215,7 +207,6 @@
                             android:text="@string/test"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/listening_test_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -227,14 +218,14 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape">
+                        android:background="?attr/report_rectangle_background"
+                        >
                         <TextView
                             android:id="@+id/listening_questions_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -242,7 +233,6 @@
                             android:text="@string/questions"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/listening_questions_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -254,7 +244,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape">
+                        android:background="?attr/report_rectangle_background"
+                        >
 
                         <ProgressBar
                             android:id="@+id/listening_progress_bar"
@@ -287,7 +278,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:text="@string/writing"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="40dp"/>
@@ -305,14 +295,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape">
+                        android:background="?attr/report_rectangle_background">
                         <TextView
                             android:id="@+id/writing_test_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -320,7 +309,6 @@
                             android:text="@string/test"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/writing_test_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -332,14 +320,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape">
+                        android:background="?attr/report_rectangle_background">
                         <TextView
                             android:id="@+id/writing_questions_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="17"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -347,7 +334,6 @@
                             android:text="@string/questions"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/writing_questions_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -359,7 +345,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         >
                         <ProgressBar
                             android:id="@+id/writing_progress_bar"
@@ -390,7 +376,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:text="@string/vocabulary"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="40dp"/>
@@ -408,7 +393,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         >
                         <TextView
                             android:id="@+id/vocabulary_test_number"
@@ -416,7 +401,6 @@
                             android:layout_height="wrap_content"
                             android:text="18"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -424,7 +408,6 @@
                             android:text="@string/test"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/vocabulary_test_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -436,8 +419,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape"
-
+                        android:background="?attr/report_rectangle_background"
                         >
                         <TextView
                             android:id="@+id/vocabulary_questions_number"
@@ -445,7 +427,6 @@
                             android:layout_height="wrap_content"
                             android:text="140"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/white"
                             android:textSize="45sp"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -453,7 +434,6 @@
                             android:text="@string/questions"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/vocabulary_questions_number"
-                            android:textColor="@color/white"
                             android:textSize="35sp"/>
                     </RelativeLayout>
                     <Space
@@ -465,7 +445,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:gravity="center"
-                        android:background="@drawable/report_rectangle_shape"
+                        android:background="?attr/report_rectangle_background"
                         >
                         <ProgressBar
                             android:id="@+id/vocabulary_progress_bar"

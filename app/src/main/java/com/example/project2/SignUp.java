@@ -2,8 +2,11 @@ package com.example.project2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -33,6 +36,8 @@ public class SignUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -151,6 +156,16 @@ public class SignUp extends AppCompatActivity {
         signUpButton.setText(R.string.signUpButtonTextEnglish);
         termsOfUseText.setText(R.string.TermsOfUseTextEnglish);
         progressDialog = new ProgressDialog(this);
+    }
+
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
+        }
     }
 
 }

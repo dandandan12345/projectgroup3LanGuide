@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical">
 
 
@@ -62,7 +62,7 @@
             android:layout_width="700dp"
             android:layout_height="match_parent"
             android:progressTint="@color/red"
-            android:thumbTint="@color/white"/>
+            android:thumbTint="?attr/customTextColor"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -75,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="600dp"
                 android:text="0:11"
-                android:textColor="@color/white"
                 android:textSize="30sp"
                 />
 
@@ -85,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:text="1:11"
-                android:textColor="@color/white"
                 android:textSize="30sp"/>
 
         </LinearLayout>
@@ -98,7 +96,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
-        android:background="@drawable/report_rectangle_shape"
+        android:background="?attr/backgroundReverseColor"
         android:paddingTop="10dp"
         android:paddingBottom="20dp">
 
@@ -124,8 +122,7 @@
                 android:text="A"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
-                android:buttonTint="@color/white"
-                android:textColor="@color/white"
+                android:buttonTint="?attr/customTextColor"
                 android:id="@+id/alt1"
                 android:checked="false"
                 android:textSize="30sp"
@@ -138,11 +135,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="B"
-                android:textColor="@color/white"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/alt2"
                 android:checked="false"
-                android:buttonTint="@color/white"
+                android:buttonTint="?attr/customTextColor"
                 android:textSize="30sp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"/>
@@ -153,8 +149,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:text="C"
-                android:buttonTint="@color/white"
-                android:textColor="@color/white"
+                android:buttonTint="?attr/customTextColor"
                 android:id="@+id/alt3"
                 android:checked="false"
                 android:textSize="30sp"

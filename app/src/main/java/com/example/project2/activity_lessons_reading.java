@@ -1,9 +1,11 @@
 package com.example.project2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -56,6 +58,8 @@ public class activity_lessons_reading extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lessons_reading);
 
@@ -65,7 +69,7 @@ public class activity_lessons_reading extends AppCompatActivity {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         writeGradesToDatabase = new WriteGradesToDatabase(lessonItemForIntent, userId);
         title=(TextView) findViewById(R.id.lesson_number);
-        title.setText( lessonItemForIntent.getLesson());
+        title.setText( getString(R.string.lesson, lessonItemForIntent.getLessonNumber()));;
         lessonText=(TextView) findViewById(R.id.lessonText);
         fullText=getResources().getString(R.string.readingText);
         lessonText.setText(fullText);
@@ -266,6 +270,15 @@ public class activity_lessons_reading extends AppCompatActivity {
 
 
         resultDialog.show();
+    }
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
+        }
     }
 
 

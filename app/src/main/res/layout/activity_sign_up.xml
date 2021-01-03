@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp"
-    android:background="@drawable/gradient_background">
+    android:background="?attr/backgroundColor">
 
     <EditText
         android:id="@+id/signUpFullName"
@@ -15,8 +15,9 @@
         android:layout_height="50dp"
         android:background="@drawable/rounded_edit_text"
         android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/ic_action_person"
+        android:drawableStart="@drawable/ic_action_person"
         android:ems="10"
+        android:drawablePadding="10dp"
         android:hint="Full name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +30,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_edit_text"
-        android:drawableLeft="@drawable/ic_action_email"
+        android:drawableStart="@drawable/ic_action_email"
         android:ems="10"
+        android:drawablePadding="10dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +46,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
+        android:drawablePadding="10dp"
         android:hint="Country"
-        android:drawableLeft="@drawable/ic_action_flag"
+        android:drawableStart="@drawable/ic_action_flag"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +60,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_edit_text"
-        android:drawableLeft="@drawable/ic_action_lock"
+        android:drawableStart="@drawable/ic_action_lock"
         android:ems="10"
+        android:drawablePadding="10dp"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +77,8 @@
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="Confirm password"
-        android:drawableLeft="@drawable/ic_action_lock"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_action_lock"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +109,6 @@
         </RelativeLayout>
 
         <TextView
-            android:textColor="@color/white"
             android:id="@+id/signUpChooseARoleLable"
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -123,7 +127,6 @@
         android:scaleX="2"
         android:scaleY="2"
         android:text="SIGN UP"
-        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,14 +139,13 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_edit_text"
+        android:background="@drawable/button_background"
         android:text="Sign up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
     <TextView
-        android:textColor="@color/white"
         android:id="@+id/signUpTermsOfUseLabel"
         android:layout_width="257dp"
         android:layout_height="43dp"

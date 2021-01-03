@@ -2,10 +2,12 @@ package com.example.project2;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -47,6 +49,8 @@ public class WritingLesson extends AppCompatActivity {
     LessonItemForIntent lessonItemForIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setRightTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing_lesson);
         Intent intent = getIntent();
@@ -57,7 +61,7 @@ public class WritingLesson extends AppCompatActivity {
         question=getResources().getString(R.string.writing_question_text);
         title = findViewById(R.id.writing_lesson_title);
         submitButton = findViewById(R.id.writingSubmitButton);
-        title.setText( lessonItemForIntent.getLesson());
+        title.setText( getString(R.string.lesson, lessonItemForIntent.getLessonNumber()));;
         textView_writingText = findViewById(R.id.textView_writingText);
         isSubmitted=false;
         choices = new WritingGapChoices[] {
@@ -189,6 +193,15 @@ public class WritingLesson extends AppCompatActivity {
         }
         else {
             super.onBackPressed();
+        }
+    }
+    private void setRightTheme(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
+        if(isLight){
+            setTheme(R.style.lightMode);
+        }else {
+            setTheme(R.style.darkMode);
         }
     }
 }

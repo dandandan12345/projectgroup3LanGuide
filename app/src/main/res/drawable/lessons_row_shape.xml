@@ -7,9 +7,9 @@
 
             >
             <solid
-                android:color="#426F9B" />
+                android:color="?attr/buttonColor" />
             <corners android:radius="10dp" />
-            <stroke android:width="3px" android:color="#ffffff" />
+            <stroke android:width="3px" android:color="?attr/borderColor" />
         </shape>
     </item>
 
