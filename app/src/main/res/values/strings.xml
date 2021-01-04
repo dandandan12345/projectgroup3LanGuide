@@ -115,6 +115,7 @@
     </string>
 
     <string name="next">Next</string>
+    <string name="back">Back</string>
     <string name="listeningText">
         You have 30 seconds to read the questions below.
         Listen to the audio, choose one of the suggested options.The recording plays twice.
