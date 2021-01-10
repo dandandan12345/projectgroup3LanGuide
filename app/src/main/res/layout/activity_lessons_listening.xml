@@ -5,69 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="20">
 
-
-    <TextView
-        android:id="@+id/lesson_listeningTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lesson_1"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="5.5">
 
-    <TextView
-        android:id="@+id/listeningDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAlignment="viewStart"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/lesson_listeningTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lesson_1"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/listeningDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:gravity="center">
-
+        android:layout_weight="4.5"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:id="@+id/countDownText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00:00"
-                android:layout_marginTop="40dp"
-                android:textSize="40dp"
+                android:textSize="45sp"
+                android:layout_marginBottom="10dp"
                 />
 
             <ImageView
                 android:id="@+id/music_player_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/music_icon"
-                android:layout_marginTop="20dp"
-                android:contentDescription="TODO" />
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/music_icon" />
         </LinearLayout>
-
 
 
         <SeekBar
             android:id="@+id/positionBar"
             android:layout_width="370dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:progressTint="@color/red"
-            android:thumbTint="?attr/customTextColor"/>
+            android:thumbTint="?attr/customTextColor" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -90,22 +99,25 @@
         </LinearLayout>
 
 
-        <Button
+        <!-- TODO! Play Button -->
+        <!--<Button
             android:id="@+id/playBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/play"
             android:onClick="playAudioClick"
             android:enabled="false"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"/>-->
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         android:background="?attr/backgroundReverseColor"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
@@ -130,6 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:buttonTint="?attr/customTextColor"
@@ -141,6 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:textColor="@color/white"
                 android:text="B"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/alt2"
@@ -151,6 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
                 android:layout_marginLeft="15dp"
                 android:text="C"
                 android:buttonTint="?attr/customTextColor"
@@ -173,7 +188,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_gravity="center">

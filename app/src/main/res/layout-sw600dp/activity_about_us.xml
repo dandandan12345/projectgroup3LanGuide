@@ -15,22 +15,33 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/lesson_listeningTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/about_us"
-                android:textAlignment="center"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+            android:orientation="vertical"
+            android:weightSum="20">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lesson_listeningTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/about_us"
+                    android:textAlignment="center"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:orientation="horizontal"
+                android:layout_weight="4.5"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
 
@@ -48,14 +59,15 @@
                     android:layout_marginTop="30dp"
                     android:justificationMode="inter_word"
                     android:text="@string/appText"
-                    android:textSize="25sp" />
+                    android:textSize="35sp" />
 
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="3.5"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
@@ -74,13 +86,14 @@
                     android:layout_marginTop="30dp"
                     android:justificationMode="inter_word"
                     android:text="@string/groupText"
-                    android:textSize="25sp" />
+                    android:textSize="35sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="4.5"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
@@ -99,13 +112,14 @@
                     android:layout_marginTop="30dp"
                     android:justificationMode="inter_word"
                     android:text="@string/educationText"
-                    android:textSize="25sp" />
-
+                    android:textSize="35sp" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="5"
                 android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
@@ -125,7 +139,7 @@
                     android:layout_marginBottom="20dp"
                     android:justificationMode="inter_word"
                     android:text="@string/contactUs"
-                    android:textSize="25sp" />
+                    android:textSize="35sp" />
 
             </LinearLayout>
 

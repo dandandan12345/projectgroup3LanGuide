@@ -5,36 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/buttonColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="20">
 
-
-    <TextView
-        android:id="@+id/lesson_listeningTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lesson_1"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="7">
 
-    <TextView
-        android:id="@+id/listeningDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textAlignment="viewStart"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="17sp" />
+        <TextView
+            android:id="@+id/lesson_listeningTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lesson_1"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/listeningDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp" />
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_weight="6">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -52,13 +61,12 @@
         </LinearLayout>
 
 
-
         <SeekBar
             android:id="@+id/positionBar"
             android:layout_width="370dp"
-            android:layout_height="match_parent"
+            android:layout_height="29dp"
             android:progressTint="@color/red"
-            android:thumbTint="?attr/customTextColor"/>
+            android:thumbTint="?attr/customTextColor" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -85,9 +93,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="?attr/backgroundReverseColor">
+        android:background="?attr/backgroundReverseColor"
+        android:layout_weight="7"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,7 +106,7 @@
             android:layout_marginTop="25dp">
 
             <LinearLayout
-                android:layout_width="500dp"
+                android:layout_width="400dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
@@ -120,6 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="A"
+                        android:textColor="@color/white"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="15dp"
                         android:buttonTint="?attr/customTextColor"
@@ -131,6 +142,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="B"
+                        android:textColor="@color/white"
                         android:layout_marginBottom="10dp"
                         android:id="@+id/alt2"
                         android:checked="false"
@@ -144,6 +156,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="15dp"
                         android:text="C"
+                        android:textColor="@color/white"
                         android:buttonTint="?attr/customTextColor"
                         android:id="@+id/alt3"
                         android:checked="false" />
@@ -161,16 +174,17 @@
 
                 <Button
                     android:id="@+id/back"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:background="@drawable/button_background"
-                    android:layout_height="wrap_content"
-                    android:text="Back"/>
+                    android:layout_height="40dp"
+                    android:text="@string/back"
+                    android:layout_marginBottom="5dp"/>
 
                 <Button
                     android:id="@+id/next"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:background="@drawable/button_background"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="@string/next" />
 
             </LinearLayout>

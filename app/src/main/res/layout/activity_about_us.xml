@@ -6,24 +6,37 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
     android:orientation="vertical"
-    tools:context=".aboutUs">
-
-    <TextView
-        android:id="@+id/lesson_listeningTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="About us"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
+    tools:context=".aboutUs"
+    android:weightSum="20">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/lesson_listeningTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="About us"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.6"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        >
 
         <ImageView
             android:layout_width="83dp"
@@ -38,14 +51,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/appText"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3.3"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
@@ -53,23 +67,24 @@
         <ImageView
             android:layout_width="83dp"
             android:layout_height="73dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/we"
             />
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/groupText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/groupText"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4.3"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
@@ -77,24 +92,25 @@
         <ImageView
             android:layout_width="83dp"
             android:layout_height="73dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/education"
             />
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/educationText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:text="@string/educationText"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
@@ -102,22 +118,21 @@
         <ImageView
             android:layout_width="83dp"
             android:layout_height="73dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/contactus"
             />
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/contactText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:text="@string/contactUs"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_marginBottom="20dp"/>
 
     </LinearLayout>
-
 
 
 

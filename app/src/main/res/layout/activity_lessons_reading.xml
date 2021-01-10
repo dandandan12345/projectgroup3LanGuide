@@ -5,50 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="20">
 
-    <TextView
-        android:id="@+id/lesson_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lesson_1"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/readingDescription"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
-        android:textSize="16sp" />
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="11">
 
-    <TextView
-        android:id="@+id/lessonText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
-        android:layout_marginBottom="20dp"
-        />
+        <TextView
+            android:id="@+id/lesson_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lesson_1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/readingDescription"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
+            android:textSize="16sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lessonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
+                    android:layout_marginBottom="20dp"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
         android:background="?attr/report_rectangle_background"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:layout_weight="7"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/questionTitle"
@@ -70,36 +92,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:buttonTint="?attr/customTextColor"
                 android:id="@+id/alt1"
-                android:textColor="?attr/customTextColor"
-                android:checked="false"
-                />
+                android:textColor="?attr/customTextColor" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="B"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:id="@+id/alt2"
-                android:checked="false"
                 android:textColor="?attr/customTextColor"
-                android:buttonTint="?attr/customTextColor"
-                />
+                android:buttonTint="?attr/customTextColor" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:text="C"
                 android:textColor="?attr/customTextColor"
                 android:buttonTint="?attr/customTextColor"
-                android:id="@+id/alt3"
-                android:checked="false" />
+                android:id="@+id/alt3" />
 
 
         </RadioGroup>
@@ -117,10 +134,11 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_weight="2">
 
         <Button
             android:id="@+id/back"
@@ -135,8 +153,7 @@
             android:layout_width="130dp"
             android:background="@drawable/button_background"
             android:layout_height="wrap_content"
-            android:text="@string/next"
-            />
+            android:text="@string/next" />
 
 
     </LinearLayout>
