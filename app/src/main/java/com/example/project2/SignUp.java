@@ -47,8 +47,9 @@ public class SignUp extends AppCompatActivity {
         usersDatabase = FirebaseDatabase.getInstance().getReference(DatabaseKeys.USERS);
 
         String[] spinnerValues = getResources().getStringArray(R.array.studentOrTeacherEnglish);
+        ArrayAdapter adapter=ArrayAdapter.createFromResource(this,R.array.studentOrTeacherEnglish,R.layout.signup_spinner);
+        adapter.setDropDownViewResource(R.layout.signup_dropdown);
 
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item, spinnerValues);
 
         spinner.setAdapter(adapter);
         signUpButton.setOnClickListener(new View.OnClickListener() {

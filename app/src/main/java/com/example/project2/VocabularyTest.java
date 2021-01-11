@@ -8,10 +8,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
+import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 import androidx.preference.PreferenceManager;
 
 import com.example.project2.Database.LessonItemForIntent;
@@ -52,11 +56,16 @@ public class VocabularyTest extends AppCompatActivity {
     LessonItemForIntent lessonItemForIntent;
     WriteGradesToDatabase writeGradesToDatabase;
     boolean isSubmitted;
+    boolean is_Lightmode;
 
+    int wordMargin = 4; //hur många extra bokstäver man kan skriva utöver de bokstäver som finns i placeholdern.
+    int previousSLength = 0;
+    //this is the latest clone
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         setRightTheme();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocabulary_test);
         Intent intent = getIntent();
@@ -88,10 +97,10 @@ public class VocabularyTest extends AppCompatActivity {
                 " gradually  implement  public  finance  management  (PFM)  reforms,  as well as continued improvements in both areas." +
                 " Over the same period Cambodia has made steady progress in poverty <u>redduction</u> in the last decade underpinned by high <u>economic</u> growth." +
                 " However important challenges remain in the education sector, such as the need to increase enrolment and retention at secondary level," +
-                " to improve quality at all levels and to reduce regional and social disparities. Addressing these requires Government to increase its resources" +
+                " to improve quality at all levels and to reduce regional and social disparities. Addressing these requires Government to increase its assets" +
                 " <u>alocated</u> to the sector. The further scaling up of budget support provided by the EU to the sector, as proposed, building on a recently" +
                 " agreed programme, will enhance the support to Government's efforts to reverse the fall in the share of Government <u>reccurent</u> funds" +
-                " provided  to  the  Ministry  of  Education,  Youth  and  Sports  (MoEYS)  by  supporting  an increase of Government <u>resources</u> <u>avarded</u>" +
+                " provided  to  the  Ministry  of  Education,  Youth  and  Sports  (MoEYS)  by  supporting  an increase of Government <u>resorces</u> <u>avarded</u>" +
                 " to specific interventions aimed at improving key service  delivery  indicators  related  to  access,  equity  and  quality  in  the  sector." +
                 "  It  will  also encourage  Government  to  continue  strengthening  its  PFM  systems  and  increase  budget <u>transperrency</u>." +
                 " The proposed amount is a top up to a recently signed programme covering the period 2014-2016.  An  Addendum to the ongoing Financing" +
@@ -107,7 +116,7 @@ public class VocabularyTest extends AppCompatActivity {
         currentEdit = findViewById(R.id.showCurrentEdit);
 
 
-        VocabularyLesson vocabularyLesson = new VocabularyLesson(test, testText,invisibleField, this, spinner,testInfo,currentEdit);
+        VocabularyLesson vocabularyLesson = new VocabularyLesson(test, testText,invisibleField, this, spinner,testInfo,currentEdit,is_Lightmode);
 
         initializeInstructions(field,typeOfSkill,typeOfTask,task);
 
@@ -129,30 +138,69 @@ public class VocabularyTest extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                invisibleField.setFilters(new InputFilter[] {new InputFilter.LengthFilter(vocabularyLesson.charsOfCurrentWord+wordMargin)});
+
                 if(vocabularyLesson.focusChanged == true)
                 {
                     vocabularyLesson.focusChanged = false;
-                    // previousSLength = 0;
+                    previousSLength = 0;
                 }
                 else
                 {
+                    int start = vocabularyLesson.startIndex;
+                    EditText tt = findViewById(R.id.testText);
+                    Editable text = tt.getText();
 
                     if(s.length() <= vocabularyLesson.charsOfCurrentWord)
                     {
-                        EditText tt = findViewById(R.id.testText);
-                        Editable text = tt.getText();
-                        int start = vocabularyLesson.startIndex; //-vocabularyLesson.charsOfCurrentWord;
-                        // int end = vocabularyLesson.startIndex-vocabularyLesson.charsOfCurrentWord+vocabularyLesson.indexChange;
-                        int spaces = vocabularyLesson.charsOfCurrentWord - s.length();
-                        String input = addspace(spaces,s.toString());
-                        text.replace(start,start+vocabularyLesson.charsOfCurrentWord,input);
+                        if(previousSLength > vocabularyLesson.charsOfCurrentWord)   //betyder att man har tryckt på backspace efter att ha skrivit fler bokstäver än vad som finns i placeholdern, så radera en bokstav
+                        {
+                            text.replace(start,start+s.length()+1,s.toString());
+                            vocabularyLesson.decrementIndexes(start,s.toString());
+                            vocabularyLesson.createNewSpannableParts(start,start+s.length(),text.toString());
+                        }
+                        else                                                        //lägg till och radera bokstäver när man har skrivit minde bokstäver än vad som finns i placeholdern
+                        {
+                            // int end = vocabularyLesson.startIndex-vocabularyLesson.charsOfCurrentWord+vocabularyLesson.indexChange;
+                            int spaces = vocabularyLesson.charsOfCurrentWord - s.length();
+                            String input = addspace(spaces,s.toString());
+                            text.replace(start,start+vocabularyLesson.charsOfCurrentWord,input);
+                            vocabularyLesson.spannableStringBuilder.replace(start,start+vocabularyLesson.charsOfCurrentWord,input);
+                        }
+                        previousSLength = s.length();
                     }
-                    else{                                                       //om man skriver fler bokstäver än tillåtet tas den sista bokstaven på ordet bort från invisibleField
+                    else if(s.length() <= vocabularyLesson.charsOfCurrentWord+wordMargin)  // tillåtet att skriva fler bokstäver än vad som fanns i placeholdern
+                    {
+                        if(s.length() < previousSLength)                                   // radera en bokstav när man har skrivit fler ord än vad som finns i placeholdern
+                        {
+                            text.replace(start,start+s.length()+1,s.toString());
+                            vocabularyLesson.decrementIndexes(start,s.toString());                                        // ändra indexen för alla spannable strings och skapa spannable strings på nytt eftersom de bytt plats
+                            vocabularyLesson.createNewSpannableParts(start,start+s.length(),text.toString());
+                        }
+                        else
+                        {
+                            if(previousSLength != vocabularyLesson.charsOfCurrentWord+wordMargin)                         // lägg till en bokstav när man har skrivit fler bokstäver än vad som fanns i placeholdern
+                            {
+                                String temp = s.toString();
+                                temp = temp.substring(temp.length()-1, temp.length());
+                                int overflow = s.length() - vocabularyLesson.charsOfCurrentWord;
+                                text.insert(start+vocabularyLesson.charsOfCurrentWord+overflow-1,temp);
+                                vocabularyLesson.incrementIndexes(start,s.toString());                                    // ändra indexen för alla spannable strings och skapa spannable strings på nytt eftersom de bytt plats
+                                vocabularyLesson.createNewSpannableParts(start,start+vocabularyLesson.charsOfCurrentWord+overflow,text.toString());
+                            }
+                        }
+                        previousSLength = s.length();
+                    }
+                    /*
+                    else
+                    {
                         String temp = s.toString();
                         temp = temp.substring(0, temp.length() - 1);
                         s.clear();
                         s.insert(0,temp);
                     }
+
+                     */
                 }
             }
         });
@@ -207,7 +255,6 @@ public class VocabularyTest extends AppCompatActivity {
 
         initializeResultDialog();
     }
-
 
     void initializeInstructions(String field, String typeOfSkill,String typeOfTask,String task) {
         String fieldLable = "<b>Field: </b>";
@@ -331,8 +378,10 @@ public class VocabularyTest extends AppCompatActivity {
         boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
         if(isLight){
             setTheme(R.style.lightMode);
+            is_Lightmode=true;
         }else {
             setTheme(R.style.darkMode);
+            is_Lightmode=false;
         }
     }
 }

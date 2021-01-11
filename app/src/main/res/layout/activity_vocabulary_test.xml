@@ -72,8 +72,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <EditText
-                    android:padding="5dp"
+                    android:padding="3dp"
                     android:id="@+id/testText"
+                    android:layout_marginLeft="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none|textNoSuggestions|textMultiLine"
@@ -84,7 +85,7 @@
                     android:justificationMode="inter_word"
                     android:fontFamily="@font/open_sans"
                     android:textColor="?attr/editTextTextColor"
-                    android:textColorLink="@color/yellow"/>
+                    android:textColorLink="#FF4500"/>
             </LinearLayout>
 
         </LinearLayout>
