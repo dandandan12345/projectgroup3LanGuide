@@ -1,9 +1,11 @@
 package com.example.project2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -101,11 +103,19 @@ public class activity_lessons_reading extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int result=number/total;
+                RadioButton getValue = (RadioButton) findViewById(radioGroup1.getCheckedRadioButtonId());
+                String valueText;
 
                 if(radioGroup1.getCheckedRadioButtonId()==-1)
                 {
-                    Toast.makeText(getApplicationContext(), "Please select one choice", Toast.LENGTH_SHORT).show();
-                    return;
+                    valueText ="Wrong";
+                    //return;
+                }
+
+                else
+                {
+                    valueText = getValue.getText().toString();
                 }
 
                 if(total>number)
@@ -114,8 +124,6 @@ public class activity_lessons_reading extends AppCompatActivity {
                 }
 
                 answered.setText((number) + "/" + total);
-                RadioButton getValue = (RadioButton) findViewById(radioGroup1.getCheckedRadioButtonId());
-                String valueText = getValue.getText().toString();
 
                 if(valueText.equals(answers[flag])) {
                     correct++;
@@ -132,16 +140,11 @@ public class activity_lessons_reading extends AppCompatActivity {
                     alt3.setText(opt[flag*3+2]);
                 }
 
-                int result=number/total;
 
                 if(result==1) {
                     next.setText("Submit");
                 }
 
-                else
-                {
-                    marks=correct;
-                }
 
                 if(flag>=total)
                 {
@@ -156,9 +159,12 @@ public class activity_lessons_reading extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 flag--;
                 number--;
-                correct--;
+
+                if(correct>0)
+                    correct--;
 
                 if(flag==0)
                 {
@@ -182,9 +188,7 @@ public class activity_lessons_reading extends AppCompatActivity {
                     alt2.setText(opt[flag*3+1]);
                     alt3.setText(opt[flag*3+2]);
                     next.setText("Next");
-
                 }
-
 
                 if(number<=1)
                 {
@@ -253,6 +257,13 @@ public class activity_lessons_reading extends AppCompatActivity {
             public void onClick(View v) {
                 resultDialog.dismiss();
                 next.setText(getResources().getString(R.string.try_aging));
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                        startActivity(getIntent());
+                    }
+                });
             }
         });
         dialogButton.setOnClickListener(new View.OnClickListener() {
@@ -271,6 +282,37 @@ public class activity_lessons_reading extends AppCompatActivity {
 
         resultDialog.show();
     }
+
+    //When the user press back button on his phone
+    @Override
+    public void onBackPressed(){
+        if(!isSubmitted){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+            builder.setCancelable(false);
+            builder.setMessage(getResources().getString(R.string.exit_without_submitting_message));
+            builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //if user pressed "yes", then he is allowed to exit from application
+                    finish();
+                }
+            });
+            builder.setNegativeButton(getResources().getString(R.string.No),new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //if user select "No", just cancel this dialog and continue with app
+                    dialog.cancel();
+                }
+            });
+            AlertDialog alert=builder.create();
+            alert.show();
+        }
+        else {
+            super.onBackPressed();
+        }
+
+    }
+
     private void setRightTheme(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isLight = sharedPreferences.getBoolean(getString(R.string.theme_key), true);
