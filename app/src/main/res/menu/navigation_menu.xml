@@ -5,10 +5,6 @@
         android:id="@+id/profile_nav"
         android:title="@string/nav_profile"
         android:icon="@drawable/ic_profile"/>
-    <item android:id="@+id/results_nav"
-        android:title="@string/nav_result"
-        android:icon="@drawable/ic_result"
-        />
     <item android:id="@+id/settings_nav"
         android:title="@string/nav_setting"
         android:icon="@drawable/ic_settings"/>
@@ -20,5 +16,5 @@
         android:icon="@drawable/ic_help"/>
     <item android:id="@+id/log_out_nav"
         android:title="@string/nav_logout"
-        android:icon="@drawable/ic_about_us"/>
+        android:icon="@drawable/ic_log_out"/>
 </menu>

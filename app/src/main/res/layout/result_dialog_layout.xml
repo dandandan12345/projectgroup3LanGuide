@@ -25,7 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lesson 1"
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_below="@id/status_image"
         android:layout_centerHorizontal="true"/>
@@ -40,13 +39,14 @@
             android:gravity="center"
             android:layout_marginTop="20dp">
             <TextView
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/total_questions"/>
             <TextView
                 android:id="@+id/resultDialogTotalQuestions"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10"/>
@@ -58,14 +58,15 @@
             android:gravity="center">
             <TextView
                 android:textColor="@color/green"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/correct_answers"/>
             <TextView
                 android:textColor="@color/green"
                 android:id="@+id/resultDialogCorrectAnswers"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10"/>
@@ -78,14 +79,15 @@
             <TextView
                 android:textColor="@color/red"
 
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/wrong_answers"/>
             <TextView
                 android:id="@+id/resultDialogWrongAnswers"
                 android:textColor="@color/red"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"/>
@@ -101,7 +103,6 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_shape"
         android:text="@string/try_aging"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
+        android:textAllCaps="false" />
 
 </RelativeLayout>

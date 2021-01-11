@@ -36,7 +36,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <Button
-                    android:paddingTop="10dp"
+                    android:paddingTop="70dp"
+                    android:gravity="center_horizontal"
                     android:id="@+id/readingBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -47,14 +48,14 @@
                     android:text="@string/reading"
                     android:textSize="30sp"
                     android:drawablePadding="10dp"
-                    android:textAlignment="center"
                     android:onClick="chooseLevel"/>
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <Button
-                    android:paddingTop="10dp"
+                    android:paddingTop="70dp"
+                    android:gravity="center_horizontal"
                     android:id="@+id/listeningBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -65,7 +66,7 @@
                     android:onClick="chooseLevel"
                     android:text="@string/listening"
                     android:drawablePadding="10dp"
-                    android:textAlignment="center"
+
                     android:textSize="30sp" />
             </LinearLayout>
 
@@ -87,7 +88,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <Button
-                    android:paddingTop="10dp"
+                    android:paddingTop="70dp"
+                    android:gravity="center_horizontal"
                     android:id="@+id/writingBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -97,7 +99,6 @@
                     android:fontFamily="@font/open_sans"
                     android:text="@string/writing"
                     android:drawablePadding="10dp"
-                    android:textAlignment="center"
                     android:textSize="30sp"
                     android:onClick="chooseLevel"/>
                 <Space
@@ -105,7 +106,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <Button
-                    android:paddingTop="10dp"
+
+                    android:paddingTop="70dp"
+                    android:gravity="center_horizontal"
                     android:id="@+id/vocabularyBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -115,7 +118,6 @@
                     android:fontFamily="@font/open_sans"
                     android:text="@string/vocabulary"
                     android:drawablePadding="10dp"
-                    android:textAlignment="center"
                     android:textSize="30sp"
                     android:onClick="chooseLevel"/>
                 <Space

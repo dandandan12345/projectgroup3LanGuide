@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.example.project2.R;
 
@@ -118,6 +119,8 @@ public class DisplayWritingText {
             );
             int xCooredinate = (parentTextViewRect.left + parentTextViewRect.right) / 2;
             int yCooredinate = parentTextViewRect.bottom;
+            yCooredinate -=150;
+            xCooredinate -=85;
             if (keywordIsInMultiLine) {
                 xCooredinate = parentTextViewRect.left;
             }
@@ -148,7 +151,11 @@ public class DisplayWritingText {
                 currentGap.selectedChoiceNumber-=1;
             spinner.setSelection(currentGap.getSelectedChoiceNumber());
             checkSpinnerCall=0;
-            spinner.performClick();
+
+
+           spinner.performClick();
+
+
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -190,6 +197,7 @@ public class DisplayWritingText {
                         textView.setText(spannableStringBuilder);
                         textView.setMovementMethod(LinkMovementMethod.getInstance());
                         spinner.setVisibility(View.INVISIBLE);
+
                     }
                     checkSpinnerCall++;
                 }
