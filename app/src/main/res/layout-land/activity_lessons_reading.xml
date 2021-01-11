@@ -5,44 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/lesson_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lesson_1"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/readingDescription"
-        android:layout_width="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/lessonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
-        android:textAlignment="viewStart"
-        android:textSize="16sp"/>
+    android:orientation="vertical"
+    android:layout_weight="20">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/lesson_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lesson_1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/readingDescription"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Read the following text carefully and answer the questions. Navigate through the questions by swiping left or right."
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lessonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Dear Colleagues, The Erasmus agreement between our institutions (Information and Communication Technologies) expires in 2020.We would like to extend."
+            android:textAlignment="viewStart"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_weight="8"
         android:background="?attr/report_rectangle_background">
 
         <LinearLayout
@@ -54,7 +65,7 @@
 
             <LinearLayout
                 android:id="@+id/left_layout"
-                android:layout_width="500dp"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -120,17 +131,17 @@
 
                 <Button
                     android:id="@+id/back"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:background="@drawable/button_background"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="Back"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="5dp"/>
 
                 <Button
                     android:id="@+id/next"
-                    android:layout_width="130dp"
+                    android:layout_width="100dp"
                     android:background="@drawable/button_background"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="@string/next"/>
 
             </LinearLayout>

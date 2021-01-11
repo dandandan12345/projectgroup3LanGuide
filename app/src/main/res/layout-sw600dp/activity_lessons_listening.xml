@@ -5,39 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="20">
 
-
-    <TextView
-        android:id="@+id/lesson_listeningTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lesson_1"
-        android:textAlignment="center"
-        android:textSize="60sp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="5">
 
-    <TextView
-        android:id="@+id/listeningDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAlignment="viewStart"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="45sp" />
+        <TextView
+            android:id="@+id/lesson_listeningTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lesson_1"
+            android:textAlignment="center"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/listeningDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="35sp" />
+
+
+    </LinearLayout>
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="20dp">
-
-
+        android:layout_weight="5">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,13 +64,12 @@
         </LinearLayout>
 
 
-
         <SeekBar
             android:id="@+id/positionBar"
             android:layout_width="700dp"
-            android:layout_height="match_parent"
+            android:layout_height="103dp"
             android:progressTint="@color/red"
-            android:thumbTint="?attr/customTextColor"/>
+            android:thumbTint="?attr/customTextColor" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -93,12 +100,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:background="?attr/backgroundReverseColor"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp">
+        android:layout_weight="8"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:background="?attr/backgroundReverseColor">
 
         <TextView
             android:id="@+id/questionTitle"
@@ -106,28 +113,30 @@
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:text="Here are questions"
-            android:textSize="50dp"
-            android:layout_marginBottom="10dp"/>
+            android:textSize="35dp"
+            android:layout_marginBottom="30dp"/>
 
         <RadioGroup
             android:id="@+id/radiogroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true">
+            android:clickable="true"
+            android:layout_marginLeft="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="15dp"
                 android:buttonTint="?attr/customTextColor"
                 android:id="@+id/alt1"
+                android:textColor="@color/white"
                 android:checked="false"
-                android:textSize="30sp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
+                android:textSize="25sp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
                 />
 
             <RadioButton
@@ -135,26 +144,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="B"
-                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="30dp"
                 android:id="@+id/alt2"
                 android:checked="false"
                 android:buttonTint="?attr/customTextColor"
-                android:textSize="30sp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:textSize="25sp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="15dp"
                 android:text="C"
+                android:textColor="@color/white"
                 android:buttonTint="?attr/customTextColor"
                 android:id="@+id/alt3"
                 android:checked="false"
-                android:textSize="30sp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:textSize="25sp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"/>
 
 
         </RadioGroup>
@@ -172,15 +183,16 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_gravity="center">
 
         <Button
             android:id="@+id/back"
-            android:layout_width="250dp"
-            android:layout_height="85dp"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
             android:layout_marginRight="20dp"
             android:background="@drawable/button_background"
             android:text="Back"
@@ -188,7 +200,7 @@
 
         <Button
             android:id="@+id/next"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:background="@drawable/button_background"
             android:text="@string/next"
