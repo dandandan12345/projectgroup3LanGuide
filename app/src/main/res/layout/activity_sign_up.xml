@@ -11,6 +11,7 @@
 
     <EditText
         android:id="@+id/signUpFullName"
+        android:textColor="@color/black"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rounded_edit_text"
@@ -20,6 +21,7 @@
         android:paddingLeft="20dp"
         android:drawablePadding="10dp"
         android:hint="Full name"
+        android:textColorHint="#808080"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +29,11 @@
 
     <EditText
         android:id="@+id/signUpEmail"
+        android:textColor="@color/black"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:textColorHint="#808080"
         android:background="@drawable/rounded_edit_text"
         android:drawableStart="@drawable/ic_action_email"
         android:ems="10"
@@ -43,6 +47,8 @@
 
     <EditText
         android:id="@+id/signUpCountry"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -59,6 +65,8 @@
 
     <EditText
         android:id="@+id/signUpPassword"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -75,6 +83,8 @@
 
     <EditText
         android:id="@+id/signUpConfirmPassword"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
