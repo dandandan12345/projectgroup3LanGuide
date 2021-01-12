@@ -101,7 +101,7 @@
                     android:layout_gravity="center_vertical|end"
                     android:justificationMode="inter_word"
                     android:fontFamily="@font/open_sans"
-                    android:textColorLink="@color/yellow"/>
+                    android:textColorLink="#FF4500"/>
             </LinearLayout>
 
         </LinearLayout>

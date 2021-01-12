@@ -36,15 +36,21 @@ public class VocabularyLesson {
     public int charsOfCurrentWord=0;
     public int startIndex=0;
     public int checkSpinnerCall;
+    int wordMargin = 4;   //hur många extra bokstäver man kan skriva utöver de bokstäver som finns i placeholdern.
     float xCoordinate=0.0f;
     float yCoordinate=0.0f;
     boolean keyBoardUp = false;
     Context context;
-    SpannableStringBuilder spannableStringBuilder;
+    public SpannableStringBuilder spannableStringBuilder;
     public EditText textView;
     TextView _info;
     SpannableString greyEdit;
-    ForegroundColorSpan grey = new ForegroundColorSpan(Color.LTGRAY);
+    boolean _lightTheme;
+    int Orange = (Color.parseColor("#FF4500"));
+    int purple= (Color.rgb(153,50,204));
+    int Yellow =(Color. rgb(255, 165, 0));
+    int Grey= (Color.GRAY);
+    int orangeDark =(Color.rgb(255, 165, 0));
 
     Spinner spinner;
     public String text;
@@ -55,15 +61,18 @@ public class VocabularyLesson {
     public List<Question> placeholders = new ArrayList<Question>();
     ArrayList<CustomItem> customItemArrayList;
 
+    int orange = Color. rgb(255, 165, 0);
+
 
     public VocabularyLesson(String text, EditText textView, EditText editText, Context context,
-                            Spinner spinner, TextView info,TextView _currentEdit)
+                            Spinner spinner, TextView info,TextView _currentEdit,boolean _lightTheme)
     {
 
         this.spinner=spinner;
         this.text =text;
         this.context= context;
         this._edittext=editText;
+        this._lightTheme=_lightTheme;
         spannableStringBuilder = new SpannableStringBuilder(Html.fromHtml(text));
         this.textView=textView;
         this._info=info;
@@ -93,27 +102,97 @@ public class VocabularyLesson {
             name = name.replace("<u>", "");
             name = name.replace("</u>", "");
             String tagFreeString = testString.toString();
-            int index = tagFreeString.indexOf(name);//find the index of where the questions are.
-            int temp = name.length();
 
+            int startIndex = tagFreeString.indexOf(name);//find the index of where the questions are.
+            int wordLeangth = name.length();
 
-            spannableStringBuilder.setSpan(new myClickableSpan(index,temp),index,index+temp,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            //tagFreeString = tagFreeString.substring(0,startIndex+wordLeangth)+"  "+tagFreeString.substring(startIndex+wordLeangth);
+            //tagFreeString = tagFreeString.substring(0,startIndex)+"  "+tagFreeString.substring(startIndex);
 
-            placeholders.add(new Question(name,index));
+            //spannableStringBuilder.insert(startIndex+wordLeangth,"  ");
+            //spannableStringBuilder.insert(startIndex-(wordMargin/2), "  ");
+
+            spannableStringBuilder.setSpan(new myClickableSpan(startIndex,wordLeangth),startIndex,startIndex+wordLeangth,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            placeholders.add(new Question(name,startIndex));
         }
-        textView.setText(testString);
+        textView.setText(spannableStringBuilder);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void createNewSpannableParts(int start, int end,String text)
+    {
+        spannableStringBuilder = new SpannableStringBuilder(text);
+
+        for(Question placeholder: placeholders)
+        {
+            int startIndex = placeholder.index;
+            int endIndex = startIndex + placeholder.placeHolder.length();
+            int wordLeangth = placeholder.placeHolder.length();
+
+            spannableStringBuilder.setSpan(new myClickableSpan(startIndex,wordLeangth),startIndex,endIndex,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            if(placeholder.answered == true)
+            {
+                if(_lightTheme){
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(purple), startIndex,startIndex+wordLeangth,0);
+                }
+                else{
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(orangeDark), startIndex,startIndex+wordLeangth,0);
+                }
+
+            }
+
+        }
+
+        spannableStringBuilder.setSpan(new myClickableSpan(start,text.length()),start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        if(_lightTheme){
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(purple), start,end,0);
+        }
+        else{
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(orangeDark), start,end,0);
+        }
+        //spannableStringBuilder.setSpan(new ForegroundColorSpan(orange), start,end,0);
+        textView.setText(spannableStringBuilder);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+    public void incrementIndexes(int start, String newPlaceholder)
+    {
+        for(Question placeholder: placeholders)
+        {
+            if(placeholder.index == start)
+            {
+                placeholder.placeHolder = newPlaceholder;
+            }
+            else if(placeholder.index > start)
+            {
+                placeholder.index++;
+            }
+        }
+    }
+    public void decrementIndexes(int start, String newPlaceholder)
+    {
+        for(Question placeholder: placeholders)
+        {
+            if(placeholder.index == start)
+            {
+                placeholder.placeHolder = newPlaceholder;
+            }
+            else if(placeholder.index > start)
+            {
+                placeholder.index--;
+            }
+        }
     }
     public void changeSpanColor(int color)
     {
         testString = new SpannableString(textView.getText());
 
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(color);
-        testString.setSpan(colorSpan, startIndex,startIndex+charsOfCurrentWord,0);
+        spannableStringBuilder.setSpan(colorSpan, startIndex,startIndex+charsOfCurrentWord,0);
 
 
         textView.setMovementMethod(LinkMovementMethod.getInstance());
-        textView.setText(testString);
+        textView.setText(spannableStringBuilder);
     }
     public  class  myClickableSpan extends ClickableSpan {
         int position;
@@ -165,17 +244,27 @@ public class VocabularyLesson {
                         for(Question word: placeholders)
                         {
                             if(word.index == startIndex){
-                                String subStr = testString.toString().substring(startIndex,startIndex+charsOfCurrentWord);
+                                String subStr = spannableStringBuilder.toString().substring(startIndex,startIndex+charsOfCurrentWord);
                                 if(subStr.equals(word.placeHolder))                // om man har ändrat på ett ord kan man inte göra det grönt...ska utforska bättre lösningar
                                 {
-                                    changeSpanColor(Color.GREEN);
+                                    if(_lightTheme){
+                                        changeSpanColor(purple);
+                                    }
+                                    else{
+                                        changeSpanColor(orangeDark);
+                                    }
                                     word.answered = true;
                                 }
                             }
                         }
                     }
                     else if(position==2){
-                        changeSpanColor(Color. rgb(255, 165, 0));
+                        if(_lightTheme){
+                            changeSpanColor(purple);
+                        }
+                        else{
+                            changeSpanColor(orangeDark);
+                        }
                         String currEdit = "Now editing: ";
                         int greyStart = currEdit.length();
                         int greyEnd = 0;
@@ -188,7 +277,12 @@ public class VocabularyLesson {
                             }
                         }
                         greyEdit = new SpannableString(currEdit);
-                        greyEdit.setSpan(grey,greyStart,greyEnd,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                        if(_lightTheme){
+                            greyEdit.setSpan(new ForegroundColorSpan(Orange),greyStart,greyEnd,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                        }
+                        else{
+                            greyEdit.setSpan(new ForegroundColorSpan(Grey),greyStart,greyEnd,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                        }
 
                         currentEdit.setText(greyEdit);                 //visa andvändaren vilket ord som stod från början innan man ändrade på det i en textview
                         currentEdit.setVisibility(View.VISIBLE);
@@ -196,13 +290,17 @@ public class VocabularyLesson {
 
                         _edittext.setEnabled(true);
                         _edittext.requestFocus();
-                        Editable text = textView.getText();
+                        Editable text = spannableStringBuilder;//textView.getText();
+
                         for(int i=0;i<charsOfCurrentWord;i++){
 
                             text.replace(startIndex+charsOfCurrentWord-i-1,startIndex+charsOfCurrentWord-i," ");  //remove letters from the word that the user has chosen to edit
                             _edittext.setSelection(_edittext.getText().length());
 
                         }
+                        textView.setText(spannableStringBuilder);
+
+
                         InputMethodManager inputMethodManager =
                                 (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
                         inputMethodManager.toggleSoftInputFromWindow(

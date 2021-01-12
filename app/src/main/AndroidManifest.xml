@@ -14,7 +14,9 @@
         android:theme="@style/darkMode">
         <activity android:name=".Settings"/>
         <activity android:name=".Help" />
-        <activity android:name=".VocabularyTest" />
+        <activity android:name=".VocabularyTest"
+            android:configChanges="orientation|screenSize"
+            />
         <activity android:name=".aboutUs" />
         <activity android:name=".activity_lessons_listening" />
         <activity android:name=".activity_lessons_reading" />
