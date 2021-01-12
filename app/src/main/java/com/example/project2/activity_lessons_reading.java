@@ -41,19 +41,19 @@ public class activity_lessons_reading extends AppCompatActivity {
 
 
     String questions[] = {
-            "1 - What is the main goal?",
-            "2 - What is the subject?",
-            "3 - What did you get?",
-            "4 - Your name?"
+            "1 - What is the main topic of the email?",
+            "2 - What is true about the Erasmus agreement in question?",
+            "3 - What does the author of the email need from the recipient?",
+            "4 - It is certain that the agreement is valid through the year ..."
     };
 
-    String answers[] = {"Option 1","Alt 2","Choice 3", "Javad"};
+    String answers[] = {"Renewing an existing agreement","It was signed by two people","a signature", "2020"};
 
     String opt[] = {
-            "Option 1","Option 2","Option 3",
-            "Alt 1","Alt 2","Alt 3",
-            "Choice 1","Choice 2","Choice 3",
-            "Javad","Daniel","Elmi"
+            "Renewing an existing agreement","Writing a new document","Search for an institution to cooperate with",
+            "It was signed by a person and a university","It was signed by two universities","It was signed by two people",
+            "a signature","a signed document","a written statement",
+            "2019","2020","2021"
     };
 
     int flag=0, number=1, total=0, correct=0, marks=0;

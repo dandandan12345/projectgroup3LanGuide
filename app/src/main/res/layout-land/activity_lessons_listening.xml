@@ -130,7 +130,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="A"
-                        android:textColor="@color/white"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="15dp"
                         android:buttonTint="?attr/customTextColor"
@@ -142,7 +141,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="B"
-                        android:textColor="@color/white"
                         android:layout_marginBottom="10dp"
                         android:id="@+id/alt2"
                         android:checked="false"
@@ -156,7 +154,6 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="15dp"
                         android:text="C"
-                        android:textColor="@color/white"
                         android:buttonTint="?attr/customTextColor"
                         android:id="@+id/alt3"
                         android:checked="false" />
